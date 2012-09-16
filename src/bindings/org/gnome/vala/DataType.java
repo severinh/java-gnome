@@ -38,7 +38,7 @@ package org.gnome.vala;
  * 
  * @author Severin Heiniger
  */
-public class DataType extends Symbol
+public class DataType extends CodeNode
 {
 
     protected DataType(long pointer) {
