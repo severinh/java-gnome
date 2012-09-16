@@ -11,8 +11,24 @@
   (return-type "gchar*")
 )
 
+(define-method set_name
+  (of-object "ValaSymbol")
+  (c-name "vala_symbol_set_name")
+  (return-type "none")
+  (parameters
+    '("gchar*" "name")
+)
+
 (define-method get_accessibility
   (of-object "ValaSymbol")
   (c-name "vala_symbol_get_access")
   (return-type "ValaSymbolAccessibility")
+)
+
+(define-method set_accessibility
+  (of-object "ValaSymbol")
+  (c-name "vala_symbol_set_access")
+  (return-type "none")
+  (parameters
+    '("ValaSymbolAccessibility" "accessibility")
 )

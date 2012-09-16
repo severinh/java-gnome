@@ -52,10 +52,24 @@ public class Symbol extends CodeNode
     }
 
     /**
+     * Sets the symbol name.
+     */
+    public void setName(String name) {
+        ValaSymbol.setName(this, name);
+    }
+
+    /**
      * Returns the specifies accessibility of this symbol.
      */
     public SymbolAccessibility getAccessibility() {
         return ValaSymbol.getAccessibility(this);
+    }
+
+    /**
+     * Sets accessibility of this symbol.
+     */
+    public void setAccessibility(SymbolAccessibility accessibility) {
+        ValaSymbol.setAccessibility(this, accessibility);
     }
 
 }
