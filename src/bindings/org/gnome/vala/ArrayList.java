@@ -32,13 +32,15 @@
  */
 package org.gnome.vala;
 
+import org.freedesktop.bindings.Proxy;
+
 /**
  * Arrays of arbitrary elements which grow automatically as elements are
  * added.
  * 
  * @author Severin Heiniger
  */
-public class ArrayList<T> extends List<T>
+public class ArrayList<T extends Proxy> extends List<T>
 {
 
     protected ArrayList(long pointer) {

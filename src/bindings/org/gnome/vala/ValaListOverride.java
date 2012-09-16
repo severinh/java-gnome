@@ -1,7 +1,7 @@
 /*
  * java-gnome, a UI library for writing GTK and GNOME programs from Java!
  *
- * Copyright © 2008-2010 Operational Dynamics Consulting, Pty Ltd
+ * Copyright © 2006-2012 Operational Dynamics Consulting, Pty Ltd and Others
  *
  * The code in this file, and the program it is a part of, is made available
  * to you by its authors as open source software: you can redistribute it
@@ -32,32 +32,27 @@
  */
 package org.gnome.vala;
 
-import java.util.Iterator;
-
 import org.freedesktop.bindings.Proxy;
 
-/**
- * Implemented by classes that support a simple iteration over instances of
- * the collection.
- * 
- * @author Severin Heiniger
- */
-public abstract class Iterable<T extends Proxy> extends Proxy implements java.lang.Iterable<T>
+final class ValaListOverride extends Plumbing
 {
-
-    protected Iterable(long pointer) {
-        super(pointer);
-        ValaIterable.ref(this);
-    }
-
-    @Override
-    protected void release() {
-        ValaIterable.unref(this);
-    }
+    private ValaListOverride() {}
 
     @SuppressWarnings("unchecked")
-    public Iterator<T> iterator() {
-        return ValaIterable.iterator(this);
+    static final <T extends Proxy> T get(List<T> self, int index) {
+        long result;
+
+        if (self == null) {
+            throw new IllegalArgumentException("self can't be null");
+        }
+
+        synchronized (lock) {
+            result = vala_list_get(pointerOf(self), index);
+
+            return (T) proxyFor(result);
+        }
     }
 
+    private static native final long vala_list_get(long self, int index);
 }
+

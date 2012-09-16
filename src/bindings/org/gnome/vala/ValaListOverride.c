@@ -1,7 +1,7 @@
 /*
  * java-gnome, a UI library for writing GTK and GNOME programs from Java!
  *
- * Copyright © 2008-2010 Operational Dynamics Consulting, Pty Ltd
+ * Copyright © 2006-2012 Operational Dynamics Consulting, Pty Ltd and Others
  *
  * The code in this file, and the program it is a part of, is made available
  * to you by its authors as open source software: you can redistribute it
@@ -30,34 +30,43 @@
  * version of the library, but you are not obligated to do so. If you do not
  * wish to do so, delete this exception statement from your version.
  */
-package org.gnome.vala;
 
-import java.util.Iterator;
+#include <jni.h>
+#include <gtk/gtk.h>
+#include <vala-0.18/vala.h>
+#include "bindings_java.h"
+#include "org_gnome_vala_ValaList.h"
 
-import org.freedesktop.bindings.Proxy;
-
-/**
- * Implemented by classes that support a simple iteration over instances of
- * the collection.
- * 
- * @author Severin Heiniger
- */
-public abstract class Iterable<T extends Proxy> extends Proxy implements java.lang.Iterable<T>
+JNIEXPORT jlong JNICALL
+Java_org_gnome_vala_ValaListOverride_vala_1list_1get
+(
+	JNIEnv* env,
+	jclass cls,
+	jlong _self,
+	jint _index
+)
 {
+	GObject* result;
+	jlong _result;
+	ValaList* self;
+	int index;
 
-    protected Iterable(long pointer) {
-        super(pointer);
-        ValaIterable.ref(this);
-    }
+	// convert parameter self
+	self = (ValaList*) _self;
 
-    @Override
-    protected void release() {
-        ValaIterable.unref(this);
-    }
+	// convert parameter index
+	index = (int) _index;
 
-    @SuppressWarnings("unchecked")
-    public Iterator<T> iterator() {
-        return ValaIterable.iterator(this);
-    }
+	// call function
+	result = vala_list_get(self, index);
 
+	// cleanup parameter self
+
+	// cleanup parameter index
+
+	// translate return value to JNI type
+	_result = (jlong) result;
+
+	// and finally
+	return _result;
 }

@@ -32,8 +32,6 @@
  */
 package org.gnome.vala;
 
-import java.util.ListIterator;
-
 import org.freedesktop.bindings.Proxy;
 
 /**
@@ -41,89 +39,31 @@ import org.freedesktop.bindings.Proxy;
  * 
  * @author Severin Heiniger
  */
-public abstract class List<T extends Proxy> extends Collection<T> implements java.util.List<T>
+public abstract class Collection<T extends Proxy> extends Iterable<T> implements java.util.Collection<T>
 {
 
-    protected List(long pointer) {
+    protected Collection(long pointer) {
         super(pointer);
     }
 
-    public void add(int arg0, T arg1) {
+    public boolean add(T arg0) {
         throw new UnsupportedOperationException("not yet implemented");
     }
 
-    public boolean addAll(java.util.Collection<? extends T> arg0) {
+    public void clear() {
         throw new UnsupportedOperationException("not yet implemented");
     }
 
-    public boolean addAll(int arg0, java.util.Collection<? extends T> arg1) {
+    public boolean contains(Object arg0) {
         throw new UnsupportedOperationException("not yet implemented");
     }
 
-    public boolean containsAll(java.util.Collection<?> arg0) {
+    public boolean remove(Object arg0) {
         throw new UnsupportedOperationException("not yet implemented");
     }
 
-    public T get(int index) {
-        return ValaListOverride.get(this, index);
-    }
-
-    public int indexOf(Object arg0) {
-        throw new UnsupportedOperationException("not yet implemented");
-    }
-
-    public boolean isEmpty() {
-        return size() == 0;
-    }
-
-    public int lastIndexOf(Object arg0) {
-        throw new UnsupportedOperationException("not yet implemented");
-    }
-
-    public ListIterator<T> listIterator() {
-        throw new UnsupportedOperationException("not yet implemented");
-    }
-
-    public ListIterator<T> listIterator(int arg0) {
-        throw new UnsupportedOperationException("not yet implemented");
-    }
-
-    public T remove(int arg0) {
-        throw new UnsupportedOperationException("not yet implemented");
-    }
-
-    public boolean removeAll(java.util.Collection<?> arg0) {
-        throw new UnsupportedOperationException("not yet implemented");
-    }
-
-    public boolean retainAll(java.util.Collection<?> arg0) {
-        throw new UnsupportedOperationException("not yet implemented");
-    }
-
-    public T set(int arg0, T arg1) {
-        throw new UnsupportedOperationException("not yet implemented");
-    }
-
-    public java.util.List<T> subList(int arg0, int arg1) {
-        throw new UnsupportedOperationException("not yet implemented");
-    }
-
-    public Object[] toArray() {
-        Object[] result = new Object[size()];
-        for (int index = 0; index < size(); index++) {
-            result[index] = get(index);
-        }
-        return result;
-    }
-
-    public <S> S[] toArray(S[] arg0) {
-        throw new UnsupportedOperationException("not yet implemented");
-    }
-
-    @Override
-    public String toString() {
-        java.util.List<T> javaList = new java.util.ArrayList<T>(this);
-        return javaList.toString();
+    public int size() {
+        return ValaCollection.getSize(this);
     }
 
 }
