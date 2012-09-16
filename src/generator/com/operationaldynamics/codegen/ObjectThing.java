@@ -28,10 +28,12 @@ public class ObjectThing extends ProxiedThing
 
     protected ObjectThing() {}
 
+    @Override
     String translationToJava(String name, DefsFile data) {
         return "(" + javaTypeInContext(data) + ") objectFor(" + name + ")";
     }
 
+    @Override
     String jniReturnCleanup(String name, char callerOwnsReturn) {
         return "bindings_java_memory_cleanup((GObject*)" + name + ", "
                 + (callerOwnsReturn == 't' ? "TRUE" : "FALSE") + ")";

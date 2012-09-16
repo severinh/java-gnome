@@ -21,26 +21,21 @@ package com.operationaldynamics.defsparser;
 import java.util.List;
 
 import com.operationaldynamics.codegen.Generator;
-import com.operationaldynamics.codegen.ObjectGenerator;
-import com.operationaldynamics.codegen.ObjectThing;
+import com.operationaldynamics.codegen.LightweightObjectGenerator;
+import com.operationaldynamics.codegen.LightweightObjectThing;
 import com.operationaldynamics.codegen.Thing;
 import com.operationaldynamics.driver.DefsFile;
 
-/**
- * Block object representing the .defs data defining a GObject.
- * 
- * @author Andrew Cowie
- */
-public class ObjectBlock extends AbstractObjectBlock
+public class LightweightObjectBlock extends AbstractObjectBlock
 {
-
-    public ObjectBlock(String blockName, List<String[]> characteristics, List<String[]> fields) {
+    public LightweightObjectBlock(String blockName, List<String[]> characteristics, List<String[]> fields) {
         super(blockName, characteristics, fields);
     }
 
     @Override
     public Thing createThing() {
-        ObjectThing t = new ObjectThing(addPointerSymbol(cName), moduleToJavaPackage(inModule), cName,
+        LightweightObjectThing t = new LightweightObjectThing(addPointerSymbol(cName),
+                moduleToJavaPackage(inModule), cName,
                 blockName);
         t.setImportHeader(importHeader);
         return t;
@@ -48,7 +43,7 @@ public class ObjectBlock extends AbstractObjectBlock
 
     @Override
     public Generator createGenerator(final DefsFile data) {
-        return new ObjectGenerator(data, addPointerSymbol(parent), implementsToArray(interfaces));
+        return new LightweightObjectGenerator(data, addPointerSymbol(parent),
+                implementsToArray(interfaces));
     }
-
 }

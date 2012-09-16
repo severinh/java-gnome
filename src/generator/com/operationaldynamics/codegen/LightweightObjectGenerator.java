@@ -16,39 +16,27 @@
  * see http://www.gnu.org/licenses/. The authors of this program may be
  * contacted through http://java-gnome.sourceforge.net/.
  */
-package com.operationaldynamics.defsparser;
+package com.operationaldynamics.codegen;
 
-import java.util.List;
-
-import com.operationaldynamics.codegen.Generator;
-import com.operationaldynamics.codegen.ObjectGenerator;
-import com.operationaldynamics.codegen.ObjectThing;
-import com.operationaldynamics.codegen.Thing;
 import com.operationaldynamics.driver.DefsFile;
 
 /**
- * Block object representing the .defs data defining a GObject.
+ * Output the file header and include statements necessary to begin the
+ * translation code for a GObject. This Generator renders an ObjectBlock into
+ * the compilation unit class declaration, along with necessary file headers
+ * and include statements, care of its parent, {@link TypeGenerator}
  * 
- * @author Andrew Cowie
+ * @author Severin Heiniger
  */
-public class ObjectBlock extends AbstractObjectBlock
+public class LightweightObjectGenerator extends AbstractObjectGenerator
 {
 
-    public ObjectBlock(String blockName, List<String[]> characteristics, List<String[]> fields) {
-        super(blockName, characteristics, fields);
+    public LightweightObjectGenerator(DefsFile data, String parentGType, String[] implementedGInterfaces) {
+        super(data, parentGType, implementedGInterfaces);
     }
 
     @Override
-    public Thing createThing() {
-        ObjectThing t = new ObjectThing(addPointerSymbol(cName), moduleToJavaPackage(inModule), cName,
-                blockName);
-        t.setImportHeader(importHeader);
-        return t;
+    protected String getDefaultParentGType() {
+        return "Proxy";
     }
-
-    @Override
-    public Generator createGenerator(final DefsFile data) {
-        return new ObjectGenerator(data, addPointerSymbol(parent), implementsToArray(interfaces));
-    }
-
 }

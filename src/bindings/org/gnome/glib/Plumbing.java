@@ -227,7 +227,7 @@ public abstract class Plumbing extends org.freedesktop.bindings.Plumbing
      * 
      * @see org.freedesktop.bindings.Plumbing#instanceFor(long)
      */
-    protected static Object objectFor(long pointer) {
+    protected static Proxy proxyFor(long pointer) {
         Proxy proxy;
 
         if (pointer == 0L) {
@@ -240,7 +240,7 @@ public abstract class Plumbing extends org.freedesktop.bindings.Plumbing
             /*
              * A Proxy exists for this. Great! Simply return it.
              */
-            return (Object) proxy;
+            return proxy;
         } else {
             /*
              * Oh. A proxy doesn't exist (yet). Okay. Lookup the GType name,
@@ -270,8 +270,12 @@ public abstract class Plumbing extends org.freedesktop.bindings.Plumbing
             type = lookupType(name);
 
             proxy = (Proxy) createPointer(type, pointer);
-            return (Object) proxy;
+            return proxy;
         }
+    }
+
+    protected static Object objectFor(long pointer) {
+        return (Object) proxyFor(pointer);
     }
 
     /**

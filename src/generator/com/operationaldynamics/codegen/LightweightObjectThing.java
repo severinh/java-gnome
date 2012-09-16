@@ -1,7 +1,7 @@
 /*
  * java-gnome, a UI library for writing GTK and GNOME programs from Java!
  *
- * Copyright © 2007-2010 Operational Dynamics Consulting, Pty Ltd
+ * Copyright © 2012 Operational Dynamics Consulting, Pty Ltd
  *
  * The code in this file, and the program it is a part of, is made available
  * to you by its authors as open source software: you can redistribute it
@@ -20,23 +20,19 @@ package com.operationaldynamics.codegen;
 
 import com.operationaldynamics.driver.DefsFile;
 
-/**
- * Output the file header and include statements necessary to begin the
- * translation code for a GObject. This Generator renders an ObjectBlock into
- * the compilation unit class declaration, along with necessary file headers
- * and include statements, care of its parent, {@link TypeGenerator}
- * 
- * @author Andrew Cowie
- */
-public class ObjectGenerator extends AbstractObjectGenerator
+public class LightweightObjectThing extends ProxiedThing
 {
 
-    public ObjectGenerator(DefsFile data, String parentGType, String[] implementedGInterfaces) {
-        super(data, parentGType, implementedGInterfaces);
+    public LightweightObjectThing(String gType, String bindingsPackage, String bindingsClass,
+            String javaType) {
+        super(gType, bindingsPackage, bindingsClass, javaType);
     }
 
+    protected LightweightObjectThing() {}
+
     @Override
-    protected String getDefaultParentGType() {
-        return "GObject*";
+    String translationToJava(String name, DefsFile data) {
+        return "(" + javaTypeInContext(data) + ") proxyFor(" + name + ")";
     }
+
 }

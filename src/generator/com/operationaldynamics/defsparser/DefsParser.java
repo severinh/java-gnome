@@ -320,6 +320,9 @@ public class DefsParser
                 if (phylum.equals("object")) {
                     block = new ObjectBlock(name, characteristics, fields);
                     blocks.add(block);
+                } else if (phylum.equals("lightweightobject")) {
+                    block = new LightweightObjectBlock(name, characteristics, fields);
+                    blocks.add(block);
                 } else if (phylum.equals("interface")) {
                     block = new InterfaceBlock(name, characteristics);
                     blocks.add(block);
