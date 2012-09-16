@@ -57,4 +57,23 @@ public class SourceFile extends Proxy
         ValaSourceFile.unref(this);
     }
 
+    /**
+     * Returns the name of this source file.
+     */
+    public String getFilename() {
+        return ValaSourceFile.getFilename(this);
+    }
+
+    /**
+     * Sets the name of this source file.
+     */
+    public void setFilename(String filename) {
+        ValaSourceFile.setFilename(this, filename);
+    }
+
+    @Override
+    public String toString() {
+        return "SourceFile[filename=" + getFilename() + "]";
+    }
+
 }

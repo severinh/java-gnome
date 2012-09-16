@@ -30,3 +30,17 @@
   (c-name "vala_source_file_unref")
   (return-type "none")
 )
+
+(define-method get_filename
+  (of-object "ValaSourceFile")
+  (c-name "vala_source_file_get_filename")
+  (return-type "gchar*")
+)
+
+(define-method set_filename
+  (of-object "ValaSourceFile")
+  (c-name "vala_source_file_set_filename")
+  (return-type "none")
+  (parameters
+    '("gchar*" "filename")
+)
