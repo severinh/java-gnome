@@ -45,6 +45,19 @@ public class Method extends Symbol
     }
 
     /**
+     * Creates a new method.
+     * 
+     * @param name
+     *            method name
+     * @param return_type
+     *            method return type
+     * @return newly created method
+     */
+    public Method(String name, DataType returnType) {
+        super(ValaMethod.createMethod(name, returnType, null, null));
+    }
+
+    /**
      * Returns the return type of this method.
      */
     public DataType getReturnType() {

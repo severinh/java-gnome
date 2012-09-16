@@ -5,6 +5,19 @@
   (import-header "vala-0.18/vala.h")
 )
 
+(define-function vala_method_new
+  (is-constructor-of "ValaMethod")
+  (c-name "vala_method_new")
+  (caller-owns-return #t)
+  (return-type "ValaMethod*")
+  (parameters
+    '("gchar*" "name" (null-ok))
+    '("ValaDataType*" "return_type")
+    '("ValaSourceReference*" "source_reference" (null-ok))
+    '("Comment*" "comment" (null-ok))
+  )
+)
+
 (define-method get_return_type
   (of-object "ValaMethod")
   (c-name "vala_method_get_return_type")

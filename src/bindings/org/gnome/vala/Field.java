@@ -44,4 +44,17 @@ public class Field extends Variable
         super(pointer);
     }
 
+    /**
+     * Creates a new field.
+     * 
+     * @param name
+     *            field name
+     * @param type
+     *            field type
+     * @return newly created field
+     */
+    public Field(String name, DataType variableType) {
+        super(ValaField.createField(name, variableType, null, null, null));
+    }
+
 }

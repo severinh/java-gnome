@@ -4,3 +4,17 @@
   (gtype-id "VALA_TYPE_FIELD")
   (import-header "vala-0.18/vala.h")
 )
+
+(define-function vala_field_new
+  (is-constructor-of "ValaField")
+  (c-name "vala_field_new")
+  (caller-owns-return #t)
+  (return-type "ValaField*")
+  (parameters
+    '("gchar*" "name")
+    '("ValaDataType*" "variable_type")
+    '("ValaExpression*" "initializer" (null-ok))
+    '("ValaSourceReference*" "source_reference" (null-ok))
+    '("Comment*" "comment" (null-ok))
+  )
+)
