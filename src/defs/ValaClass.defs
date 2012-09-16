@@ -5,6 +5,12 @@
   (import-header "vala-0.18/vala.h")
 )
 
+(define-method get_base_types
+  (of-object "ValaClass")
+  (c-name "vala_class_get_base_types")
+  (return-type "ValaList*")
+)
+
 (define-method get_fields
   (of-object "ValaClass")
   (c-name "vala_class_get_fields")

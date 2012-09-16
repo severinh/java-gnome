@@ -45,6 +45,16 @@ public class Class extends ObjectTypeSymbol
     }
 
     /**
+     * Returns a copy of the base type list.
+     * 
+     * @return list of base types
+     */
+    @SuppressWarnings("unchecked")
+    public List<DataType> getBaseTypes() {
+        return ValaClass.getBaseTypes(this);
+    }
+
+    /**
      * Returns a copy of the list of fields.
      * 
      * @return list of fields
@@ -52,6 +62,23 @@ public class Class extends ObjectTypeSymbol
     @SuppressWarnings("unchecked")
     public List<Field> getFields() {
         return ValaClass.getFields(this);
+    }
+
+    /**
+     * Returns the field with the given name, if any.
+     * 
+     * @param name
+     *            the name of the field
+     * @return <code>null</code> if there is no such field
+     * @todo the method has a linear rather than a constant complexity
+     */
+    public Field getField(String name) {
+        for (Field field : getFields()) {
+            if (field.getName().equals(name)) {
+                return field;
+            }
+        }
+        return null;
     }
 
 }

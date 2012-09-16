@@ -56,4 +56,21 @@ public class ObjectTypeSymbol extends TypeSymbol
         return ValaObjectTypeSymbol.getMethods(this);
     }
 
+    /**
+     * Returns the method with the given name, if any.
+     * 
+     * @param name
+     *            the name of the method
+     * @return <code>null</code> if there is no such method
+     * @todo the method has a linear rather than a constant complexity
+     */
+    public Method getMethod(String name) {
+        for (Method method : getMethods()) {
+            if (method.getName().equals(name)) {
+                return method;
+            }
+        }
+        return null;
+    }
+
 }
