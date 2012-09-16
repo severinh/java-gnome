@@ -1,0 +1,6 @@
+(define-lightweightobject LocalVariable
+  (in-module "Vala")
+  (c-name "ValaLocalVariable")
+  (gtype-id "VALA_TYPE_LOCAL_VARIABLE")
+  (import-header "vala-0.18/vala.h")
+)
