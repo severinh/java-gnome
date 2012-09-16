@@ -1,0 +1,12 @@
+(define-lightweightobject Variable
+  (in-module "Vala")
+  (c-name "ValaVariable")
+  (gtype-id "VALA_TYPE_VARIABLE")
+  (import-header "vala-0.18/vala.h")
+)
+
+(define-method get_variable_type
+  (of-object "ValaVariable")
+  (c-name "vala_variable_get_variable_type")
+  (return-type "ValaDataType*")
+)

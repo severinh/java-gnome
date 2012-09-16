@@ -1,0 +1,24 @@
+(define-lightweightobject Iterable
+  (in-module "Vala")
+  (c-name "ValaIterable")
+  (gtype-id "VALA_TYPE_ITERABLE")
+  (import-header "vala-0.18/vala.h")
+)
+
+(define-method ref
+  (of-object "ValaIterable")
+  (c-name "vala_iterable_ref")
+  (return-type "none")
+)
+
+(define-method unref
+  (of-object "ValaIterable")
+  (c-name "vala_iterable_unref")
+  (return-type "none")
+)
+
+(define-method iterator
+  (of-object "ValaIterable")
+  (c-name "vala_iterable_iterator")
+  (return-type "ValaIterator*")
+)

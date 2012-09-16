@@ -1,0 +1,64 @@
+(define-lightweightobject CodeContext
+  (in-module "Vala")
+  (c-name "ValaCodeContext")
+  (gtype-id "VALA_TYPE_CODE_CONTEXT")
+  (import-header "vala-0.18/vala.h")
+)
+
+(define-function vala_code_context_new
+  (is-constructor-of "ValaCodeContext")
+  (c-name "vala_code_context_new")
+  (caller-owns-return #t)
+  (return-type "ValaCodeContext*")
+)
+
+(define-method ref
+  (of-object "ValaCodeContext")
+  (c-name "vala_code_context_ref")
+  (return-type "none")
+)
+
+(define-method unref
+  (of-object "ValaCodeContext")
+  (c-name "vala_code_context_unref")
+  (return-type "none")
+)
+
+(define-function push
+  (c-name "vala_code_context_push)
+  (return-type "none")
+  (parameters
+    '("ValaCodeContext*" "context")
+)
+
+(define-method add_external_package
+  (of-object "ValaCodeContext")
+  (c-name "vala_code_context_add_external_package")
+  (return-type "gboolean")
+  (parameters
+    '("gchar*" "pkg")
+  )
+)
+
+(define-method add_source_filename
+  (of-object "ValaCodeContext")
+  (c-name "vala_code_context_add_source_filename")
+  (return-type "gboolean")
+  (parameters
+    '("gchar*" "filename")
+    '("gboolean" "is_source")
+    '("gboolean" "cmdline")
+  )
+)
+
+(define-method check
+  (of-object "ValaCodeContext")
+  (c-name "vala_code_context_check")
+  (return-type "none")
+)
+
+(define-method get_root
+  (of-object "ValaCodeContext")
+  (c-name "vala_code_context_get_root")
+  (return-type "ValaNamespace*")
+)

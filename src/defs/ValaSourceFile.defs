@@ -1,0 +1,32 @@
+(define-lightweightobject SourceFile
+  (in-module "Vala")
+  (c-name "ValaSourceFile")
+  (gtype-id "VALA_TYPE_SOURCE_FILE")
+  (import-header "vala-0.18/vala.h")
+)
+
+(define-function vala_source_file_new
+  (is-constructor-of "ValaSourceFile")
+  (c-name "vala_source_file_new")
+  (caller-owns-return #t)
+  (return-type "ValaSourceFile*")
+  (parameters
+    '("ValaCodeContext*" "context")
+    '("ValaSourceFileType" "type")
+    '("gchar*" "filename")
+    '("gchar*" "content" (null-ok))
+    '("gboolean" "cmdline")
+  )
+)
+
+(define-method ref
+  (of-object "ValaSourceFile")
+  (c-name "vala_source_file_ref")
+  (return-type "none")
+)
+
+(define-method unref
+  (of-object "ValaSourceFile")
+  (c-name "vala_source_file_unref")
+  (return-type "none")
+)

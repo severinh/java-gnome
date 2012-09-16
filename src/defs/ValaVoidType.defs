@@ -1,0 +1,6 @@
+(define-lightweightobject VoidType
+  (in-module "Vala")
+  (c-name "ValaVoidType")
+  (gtype-id "VALA_TYPE_VOID_TYPE")
+  (import-header "vala-0.18/vala.h")
+)

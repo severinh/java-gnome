@@ -1,0 +1,6 @@
+(define-lightweightobject Field
+  (in-module "Vala")
+  (c-name "ValaField")
+  (gtype-id "VALA_TYPE_FIELD")
+  (import-header "vala-0.18/vala.h")
+)

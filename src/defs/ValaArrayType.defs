@@ -1,0 +1,6 @@
+(define-lightweightobject ArrayType
+  (in-module "Vala")
+  (c-name "ValaArrayType")
+  (gtype-id "VALA_TYPE_ARRAY_TYPE")
+  (import-header "vala-0.18/vala.h")
+)

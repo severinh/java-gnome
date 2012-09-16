@@ -1,0 +1,12 @@
+(define-lightweightobject DataType
+  (in-module "Vala")
+  (c-name "ValaDataType")
+  (gtype-id "VALA_TYPE_DATA_TYPE")
+  (import-header "vala-0.18/vala.h")
+)
+
+(define-method get_data_type
+  (of-object "ValaDataType")
+  (c-name "vala_data_type_get_data_type")
+  (return-type "ValaTypeSymbol*")
+)

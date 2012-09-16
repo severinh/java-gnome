@@ -1,0 +1,12 @@
+(define-lightweightobject Class
+  (in-module "Vala")
+  (c-name "ValaClass")
+  (gtype-id "VALA_TYPE_CLASS")
+  (import-header "vala-0.18/vala.h")
+)
+
+(define-method get_fields
+  (of-object "ValaClass")
+  (c-name "vala_class_get_fields")
+  (return-type "ValaList*")
+)

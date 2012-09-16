@@ -1,0 +1,18 @@
+(define-lightweightobject Method
+  (in-module "Vala")
+  (c-name "ValaMethod")
+  (gtype-id "VALA_TYPE_METHOD")
+  (import-header "vala-0.18/vala.h")
+)
+
+(define-method get_return_type
+  (of-object "ValaMethod")
+  (c-name "vala_method_get_return_type")
+  (return-type "ValaDataType*")
+)
+
+(define-method get_parameters
+  (of-object "ValaMethod")
+  (c-name "vala_method_get_parameters")
+  (return-type "ValaList*")
+)

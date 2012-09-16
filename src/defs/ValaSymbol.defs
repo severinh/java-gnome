@@ -1,0 +1,18 @@
+(define-lightweightobject Symbol
+  (in-module "Vala")
+  (c-name "ValaSymbol")
+  (gtype-id "VALA_TYPE_SYMBOL")
+  (import-header "vala-0.18/vala.h")
+)
+
+(define-method get_name
+  (of-object "ValaSymbol")
+  (c-name "vala_symbol_get_name")
+  (return-type "gchar*")
+)
+
+(define-method get_accessibility
+  (of-object "ValaSymbol")
+  (c-name "vala_symbol_get_access")
+  (return-type "ValaSymbolAccessibility")
+)

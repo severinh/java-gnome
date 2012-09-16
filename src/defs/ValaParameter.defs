@@ -1,0 +1,6 @@
+(define-lightweightobject Parameter
+  (in-module "Vala")
+  (c-name "ValaParameter")
+  (gtype-id "VALA_TYPE_PARAMETER")
+  (import-header "vala-0.18/vala.h")
+)

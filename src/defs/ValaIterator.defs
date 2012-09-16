@@ -1,0 +1,30 @@
+(define-lightweightobject Iterator
+  (in-module "Vala")
+  (c-name "ValaIterator")
+  (gtype-id "VALA_TYPE_ITERATOR")
+  (import-header "vala-0.18/vala.h")
+)
+
+(define-method ref
+  (of-object "ValaIterator")
+  (c-name "vala_iterator_ref")
+  (return-type "none")
+)
+
+(define-method unref
+  (of-object "ValaIterator")
+  (c-name "vala_iterator_unref")
+  (return-type "none")
+)
+
+(define-method next
+  (of-object "ValaIterator")
+  (c-name "vala_iterator_next")
+  (return-type "gboolean")
+)
+
+(define-method get
+  (of-object "ValaIterator")
+  (c-name "vala_iterator_get")
+  (return-type "GObject*")
+)

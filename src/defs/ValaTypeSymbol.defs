@@ -1,0 +1,6 @@
+(define-lightweightobject TypeSymbol
+  (in-module "Vala")
+  (c-name "ValaTypeSymbol")
+  (gtype-id "VALA_TYPE_TYPE_SYMBOL")
+  (import-header "vala-0.18/vala.h")
+)

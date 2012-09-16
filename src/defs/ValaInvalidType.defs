@@ -1,0 +1,6 @@
+(define-lightweightobject InvalidType
+  (in-module "Vala")
+  (c-name "ValaInvalidType")
+  (gtype-id "VALA_TYPE_INVALID_TYPE")
+  (import-header "vala-0.18/vala.h")
+)

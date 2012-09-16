@@ -1,0 +1,6 @@
+(define-lightweightobject List
+  (in-module "Vala")
+  (c-name "ValaList")
+  (gtype-id "VALA_TYPE_L")
+  (import-header "vala-0.18/vala.h")
+)

@@ -1,0 +1,22 @@
+(define-lightweightobject Namespace
+  (in-module "Vala")
+  (c-name "ValaNamespace")
+  (gtype-id "VALA_TYPE_NAMESPACE")
+  (import-header "vala-0.18/vala.h")
+)
+
+(define-function vala_namespace_new
+  (is-constructor-of "ValaNamespace")
+  (c-name "vala_namespace_new")
+  (caller-owns-return #t)
+  (return-type "ValaNamespace*")
+  (parameters
+    '("gchar*" "name" (null-ok))
+    '("ValaSourceReference*" "source_reference" (null-ok))
+)
+
+(define-method get_classes
+  (of-object "ValaNamespace")
+  (c-name "vala_namespace_get_classes")
+  (return-type "ValaList*")
+)

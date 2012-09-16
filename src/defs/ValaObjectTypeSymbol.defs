@@ -1,0 +1,12 @@
+(define-lightweightobject ObjectTypeSymbol
+  (in-module "Vala")
+  (c-name "ValaObjectTypeSymbol")
+  (gtype-id "VALA_TYPE_OBJECT_TYPE_SYMBOL")
+  (import-header "vala-0.18/vala.h")
+)
+
+(define-method get_methods
+  (of-object "ValaObjectTypeSymbol")
+  (c-name "vala_object_type_symbol_get_methods")
+  (return-type "ValaList*")
+)

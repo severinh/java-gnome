@@ -1,0 +1,11 @@
+(define-enum SourceFileType
+  (in-module "Vala")
+  (c-name "ValaSourceFileType")
+  (import-header "vala-0.18/vala.h")
+  (values
+    '("none" "VALA_SOURCE_FILE_TYPE_NONE")
+    '("source" "VALA_SOURCE_FILE_TYPE_SOURCE")
+    '("package" "VALA_SOURCE_FILE_TYPE_PACKAGE")
+    '("fast" "VALA_SOURCE_FILE_TYPE_FAST")
+  )
+)

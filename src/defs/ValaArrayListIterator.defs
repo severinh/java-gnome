@@ -1,0 +1,18 @@
+(define-lightweightobject ArrayListIterator
+  (in-module "Vala")
+  (c-name "ValaArrayListIterator")
+  (gtype-id "VALA_ARRAY_LIST_TYPE_ITERATOR")
+  (import-header "vala-0.18/vala.h")
+)
+
+(define-method next
+  (of-object "ValaIterator")
+  (c-name "vala_iterator_next")
+  (return-type "gboolean")
+)
+
+(define-method get
+  (of-object "ValaIterator")
+  (c-name "vala_iterator_get")
+  (return-type "GObject*")
+)
