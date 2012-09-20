@@ -35,7 +35,8 @@ package org.gnome.vala;
 abstract class Plumbing extends org.gnome.glib.Plumbing
 {
     static {
-        isLibraryReady();
+        // We do not need to call isLibraryRead() here because the Vala
+        // library does not interact at all with GTK.
     }
 
     protected Plumbing() {}

@@ -73,7 +73,11 @@ public abstract class Plumbing extends org.freedesktop.bindings.Plumbing
          */
 
         lock = Gdk.lock;
-        initializeNative(lock);
+
+        // Do not initialize the GDK threading mechanism because Valable
+        // does not use any of the GDK API and it interferes with how
+        // Eclipse itself interacts with GDK through SWT.
+        // initializeNative(lock);
 
         /*
          * Not that this code does NOT call isLibraryReady(). That is because
