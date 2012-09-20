@@ -49,7 +49,7 @@ public class Method extends Symbol
      * 
      * @param name
      *            method name
-     * @param return_type
+     * @param returnType
      *            method return type
      * @return newly created method
      */
