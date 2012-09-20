@@ -22,9 +22,3 @@
   (c-name "vala_code_node_get_source_reference")
   (return-type "ValaSourceReference*")
 )
-
-(define-method to_string
-  (of-object "ValaCodeNode")
-  (c-name "vala_code_node_to_string")
-  (return-type "gchar*")
-)

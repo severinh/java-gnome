@@ -72,4 +72,11 @@ public class Symbol extends CodeNode
         ValaSymbol.setAccessibility(this, accessibility);
     }
 
+    @Override
+    public String toString () {
+        // Do not bind to vala_symbol_to_string, because it returns
+        // a C code comment.
+        return getClass().getSimpleName() + "[name=" + getName() + "]";
+    }
+
 }

@@ -63,9 +63,4 @@ public abstract class CodeNode extends Proxy
         return ValaCodeNode.getSourceReference(this);
     }
 
-    @Override
-    public String toString() {
-        return ValaCodeNode.toString(this);
-    }
-
 }
