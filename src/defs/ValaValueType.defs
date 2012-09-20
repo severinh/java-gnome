@@ -1,0 +1,6 @@
+(define-lightweightobject ValueType
+  (in-module "Vala")
+  (c-name "ValaValueType")
+  (gtype-id "VALA_TYPE_VALUE_TYPE")
+  (import-header "vala-0.18/vala.h")
+)

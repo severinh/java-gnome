@@ -1,0 +1,6 @@
+(define-lightweightobject Struct
+  (in-module "Vala")
+  (c-name "ValaStruct")
+  (gtype-id "VALA_TYPE_STRUCT")
+  (import-header "vala-0.18/vala.h")
+)
