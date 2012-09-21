@@ -51,10 +51,29 @@ public class Field extends Variable
      *            field name
      * @param variableType
      *            field type
+     * @param initializer
+     *            initializer expression
+     * @param sourceReference
+     *            reference to source code
+     * @return newly created field
+     */
+    public Field(String name, DataType variableType, Expression initializer,
+            SourceReference sourceReference, Comment comment) {
+        super(ValaField.createField(name, variableType, initializer, sourceReference, comment));
+    }
+
+    /**
+     * Creates a new field with neither a source reference, an initializer
+     * expression nor a comment.
+     * 
+     * @param name
+     *            field name
+     * @param variableType
+     *            field type
      * @return newly created field
      */
     public Field(String name, DataType variableType) {
-        super(ValaField.createField(name, variableType, null, null, null));
+        this(name, variableType, null, null, null);
     }
 
 }

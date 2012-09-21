@@ -4,3 +4,16 @@
   (gtype-id "VALA_TYPE_LOCAL_VARIABLE")
   (import-header "vala-0.18/vala.h")
 )
+
+(define-function vala_local_variable_new
+  (is-constructor-of "ValaLocalVariable")
+  (c-name "vala_local_variable_new")
+  (caller-owns-return #t)
+  (return-type "ValaLocalVariable*")
+  (parameters
+    '("ValaDataType*" "variable_type")
+    '("gchar*" "name")
+    '("ValaExpression*" "initializer" (null-ok))
+    '("ValaSourceReference*" "source_reference" (null-ok))
+  )
+)

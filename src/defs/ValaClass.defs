@@ -5,6 +5,18 @@
   (import-header "vala-0.18/vala.h")
 )
 
+(define-function vala_class_new
+  (is-constructor-of "ValaClass")
+  (c-name "vala_class_new")
+  (caller-owns-return #t)
+  (return-type "ValaClass*")
+  (parameters
+    '("gchar*" "name")
+    '("ValaSourceReference*" "source_reference" (null-ok))
+    '("ValaComment*" "comment" (null-ok))
+  )
+)
+
 (define-method get_base_types
   (of-object "ValaClass")
   (c-name "vala_class_get_base_types")

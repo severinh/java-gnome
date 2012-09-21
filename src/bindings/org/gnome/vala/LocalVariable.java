@@ -44,4 +44,36 @@ public class LocalVariable extends Variable
         super(pointer);
     }
 
+    /**
+     * Creates a new local variable.
+     * 
+     * @param name
+     *            name of the variable
+     * @param variableType
+     *            type of the variable
+     * @param initializer
+     *            optional initializer expression
+     * @param sourceReference
+     *            reference to source code
+     * @return newly created variable declarator
+     */
+    public LocalVariable(String name, DataType variableType, Expression initializer,
+            SourceReference sourceReference) {
+        super(ValaLocalVariable.createLocalVariable(variableType, name, initializer, sourceReference));
+    }
+
+    /**
+     * Creates a new local variable with neither an initializer expression nor
+     * a source reference.
+     * 
+     * @param name
+     *            name of the variable
+     * @param variableType
+     *            type of the variable
+     * @return newly created variable declarator
+     */
+    public LocalVariable(String name, DataType variableType) {
+        this(name, variableType, null, null);
+    }
+
 }

@@ -45,6 +45,32 @@ public class Class extends ObjectTypeSymbol
     }
 
     /**
+     * Creates a new class.
+     * 
+     * @param name
+     *            type name
+     * @param sourceReference
+     *            reference to source code
+     * @param comment
+     *            class documentation
+     * @return newly created class
+     */
+    public Class(String name, SourceReference sourceReference, Comment comment) {
+        super(ValaClass.createClass(name, sourceReference, comment));
+    }
+
+    /**
+     * Creates a new class with neither a source reference nor a comment.
+     * 
+     * @param name
+     *            type name
+     * @return newly created class
+     */
+    public Class(String name) {
+        this(name, null, null);
+    }
+
+    /**
      * Returns a copy of the base type list.
      * 
      * @return list of base types
