@@ -40,6 +40,8 @@ package org.gnome.vala;
 public class Symbol extends CodeNode
 {
 
+    private SourceReference nameSourceReference = null;
+
     protected Symbol(long pointer) {
         super(pointer);
     }
@@ -59,6 +61,33 @@ public class Symbol extends CodeNode
     }
 
     /**
+     * Returns the source reference to the symbol name.
+     */
+    public SourceReference getNameSourceReference() {
+        if (nameSourceReference == null) {
+            String name = getName();
+            SourceReference sourceReference = getSourceReference();
+            SourceFile sourceFile = sourceReference.getSourceFile();
+            String referenceContent = sourceReference.getContent();
+            SourceLocation begin = sourceReference.getBegin();
+            SourceLocation end = sourceReference.getEnd();
+
+            if (begin.getLine() != end.getLine()) {
+                throw new IllegalArgumentException("SourceReference must only consist of a single line");
+            }
+
+            int index = referenceContent.indexOf(name);
+            int line = begin.getLine();
+            int columnBegin = begin.getColumn() + index;
+            int columnEnd = columnBegin + name.length() - 1;
+            SourceLocation nameBegin = new SourceLocation(line, columnBegin);
+            SourceLocation nameEnd = new SourceLocation(line, columnEnd);
+            nameSourceReference = new SourceReference(sourceFile, nameBegin, nameEnd);
+        }
+        return nameSourceReference;
+    }
+
+    /**
      * Returns the specifies accessibility of this symbol.
      */
     public SymbolAccessibility getAccessibility() {
@@ -73,7 +102,7 @@ public class Symbol extends CodeNode
     }
 
     @Override
-    public String toString () {
+    public String toString() {
         // Do not bind to vala_symbol_to_string, because it returns
         // a C code comment.
         return getClass().getSimpleName() + "[name=" + getName() + "]";
