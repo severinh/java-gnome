@@ -4,3 +4,13 @@
   (gtype-id "VALA_TYPE_VOID_TYPE")
   (import-header "vala-0.18/vala.h")
 )
+
+(define-function vala_void_type_new
+  (is-constructor-of "ValaVoidType")
+  (c-name "vala_void_type_new")
+  (caller-owns-return #t)
+  (return-type "ValaVoidType*")
+  (parameters
+    '("ValaSourceReference*" "source_reference" (null-ok))
+  )
+)

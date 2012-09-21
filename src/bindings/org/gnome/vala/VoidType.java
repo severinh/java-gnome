@@ -44,4 +44,17 @@ public class VoidType extends DataType
         super(pointer);
     }
 
+    /**
+     * Creates a new void type.
+     * 
+     * @param sourceReference
+     */
+    public VoidType(SourceReference sourceReference) {
+        super(ValaVoidType.createVoidType(sourceReference));
+    }
+
+    public VoidType() {
+        this(null);
+    }
+
 }
