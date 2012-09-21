@@ -60,4 +60,20 @@ final class ValaSourceReferenceOverride extends Plumbing
 
     private static native final void vala_source_reference_get_end(long self, long sourceLocation);
 
+    static final String getContent(SourceReference self) {
+        String result;
+
+        if (self == null) {
+            throw new IllegalArgumentException("self can't be null");
+        }
+
+        synchronized (lock) {
+            result = vala_source_reference_get_content(pointerOf(self));
+
+            return result;
+        }
+    }
+
+    private static native final String vala_source_reference_get_content(long self);
+
 }

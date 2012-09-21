@@ -89,6 +89,13 @@ public class SourceReference extends Proxy
         return end;
     }
 
+    /**
+     * Returns the content between {@link #getBegin()} and {@link #getEnd()}.
+     */
+    public String getContent() {
+        return ValaSourceReferenceOverride.getContent(this);
+    }
+
     @Override
     public String toString() {
         return ValaSourceReference.toString(this);

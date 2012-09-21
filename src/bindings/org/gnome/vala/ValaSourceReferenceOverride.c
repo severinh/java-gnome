@@ -31,6 +31,7 @@
  * wish to do so, delete this exception statement from your version.
  */
 
+#include <string.h>
 #include <jni.h>
 #include <gtk/gtk.h>
 #include <vala-0.18/vala.h>
@@ -79,4 +80,44 @@ Java_org_gnome_vala_ValaSourceReferenceOverride_vala_1source_1reference_1get_1en
 	vala_source_reference_get_end(self, location);
 
 	// cleanup parameter self
+}
+
+JNIEXPORT jstring JNICALL
+Java_org_gnome_vala_ValaSourceReferenceOverride_vala_1source_1reference_1get_1content
+(
+	JNIEnv* env,
+	jclass cls,
+	jlong _self
+)
+{
+	gchar* result;
+	jstring _result;
+	ValaSourceReference* self;
+	ValaSourceLocation begin_source_location;
+	ValaSourceLocation end_source_location;
+	gchar* begin_pos;
+	gchar* end_pos;
+	int length;
+	
+	// convert parameter self
+	self = (ValaSourceReference*) _self;
+
+	// call function
+	vala_source_reference_get_begin (self, &begin_source_location);
+	vala_source_reference_get_end (self, &end_source_location);
+	begin_pos = begin_source_location.pos;
+	end_pos = end_source_location.pos;
+	length = end_pos - begin_pos;
+	result = strndup(begin_pos, length);
+	
+	// cleanup parameter self
+
+	// translate return value to JNI type
+	_result = (jstring) bindings_java_newString(env, result);
+
+	// free temporary string
+	free (result);
+
+	// and finally
+	return _result;
 }
