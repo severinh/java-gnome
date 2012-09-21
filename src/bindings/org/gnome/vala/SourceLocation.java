@@ -110,7 +110,7 @@ public class SourceLocation extends Boxed
 
     @Override
     public String toString() {
-        return this.getClass().getSimpleName() + ": " + getLine() + " : " + getColumn();
+        return this.getClass().getSimpleName() + "[line=" + getLine() + ",column=" + getColumn() + "]";
     }
 
 }
