@@ -37,17 +37,13 @@ final class ValaSourceLocationOverride extends Plumbing
     private ValaSourceLocationOverride() {}
 
     static final long createSourceLocation(int line, int column) {
-        synchronized (lock) {
-            return vala_source_location_new(line, column);
-        }
+        return vala_source_location_new(line, column);
     }
 
     private static native final long vala_source_location_new(int line, int column);
 
     static final void free(SourceLocation self) {
-        synchronized (lock) {
-            vala_source_location_free(pointerOf(self));
-        }
+        vala_source_location_free(pointerOf(self));
     }
 
     private static native final void vala_source_location_free(long self);

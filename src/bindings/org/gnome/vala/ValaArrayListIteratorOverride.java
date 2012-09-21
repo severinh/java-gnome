@@ -45,11 +45,8 @@ final class ValaArrayListIteratorOverride extends Plumbing
             throw new IllegalArgumentException("self can't be null");
         }
 
-        synchronized (lock) {
-            result = vala_iterator_next(pointerOf(self));
-
-            return result;
-        }
+        result = vala_iterator_next(pointerOf(self));
+        return result;
     }
 
     private static native final boolean vala_iterator_next(long self);
@@ -62,11 +59,8 @@ final class ValaArrayListIteratorOverride extends Plumbing
             throw new IllegalArgumentException("self can't be null");
         }
 
-        synchronized (lock) {
-            result = vala_iterator_get(pointerOf(self));
-
-            return (T) proxyFor(result);
-        }
+        result = vala_iterator_get(pointerOf(self));
+        return (T) proxyFor(result);
     }
 
     private static native final long vala_iterator_get(long self);

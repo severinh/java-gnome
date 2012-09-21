@@ -46,11 +46,8 @@ final class ValaListOverride extends Plumbing
             throw new IllegalArgumentException("self can't be null");
         }
 
-        synchronized (lock) {
-            result = vala_list_get(pointerOf(self), index);
-
-            return (T) proxyFor(result);
-        }
+        result = vala_list_get(pointerOf(self), index);
+        return (T) proxyFor(result);
     }
 
     private static native final long vala_list_get(long self, int index);
