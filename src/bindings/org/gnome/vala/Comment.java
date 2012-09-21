@@ -32,58 +32,24 @@
  */
 package org.gnome.vala;
 
+import org.freedesktop.bindings.Proxy;
+
 /**
- * Represents a type or namespace method.
+ * A documentation comment used by valadoc.
  * 
  * @author Severin Heiniger
  */
-public class Method extends Symbol
+public abstract class Comment extends Proxy
 {
 
-    protected Method(long pointer) {
+    protected Comment(long pointer) {
         super(pointer);
+        ValaComment.ref(this);
     }
 
-    /**
-     * Creates a new method.
-     * 
-     * @param name
-     *            method name
-     * @param returnType
-     *            method return type
-     * @param sourceReference
-     *            source reference
-     * @param comment
-     *            method comment
-     * @return newly created method
-     */
-    public Method(String name, DataType returnType, SourceReference sourceReference, Comment comment) {
-        super(ValaMethod.createMethod(name, returnType, sourceReference, comment));
-    }
-
-    /**
-     * Creates a new method with neither a source reference nor a comment.
-     * 
-     * @param name
-     *            method name
-     * @param returnType
-     *            method return type
-     * @return newly created method
-     */
-    public Method(String name, DataType returnType) {
-        this(name, returnType, null, null);
-    }
-
-    /**
-     * Returns the return type of this method.
-     */
-    public DataType getReturnType() {
-        return ValaMethod.getReturnType(this);
-    }
-
-    @SuppressWarnings("unchecked")
-    public List<Parameter> getParameters() {
-        return ValaMethod.getParameters(this);
+    @Override
+    protected void release() {
+        ValaComment.unref(this);
     }
 
 }

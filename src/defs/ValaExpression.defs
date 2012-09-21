@@ -1,0 +1,6 @@
+(define-lightweightobject Expression
+  (in-module "Vala")
+  (c-name "ValaExpression")
+  (gtype-id "VALA_TYPE_EXPRESSION")
+  (import-header "vala-0.18/vala.h")
+)

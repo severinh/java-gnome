@@ -15,6 +15,6 @@
     '("ValaDataType*" "variable_type")
     '("ValaExpression*" "initializer" (null-ok))
     '("ValaSourceReference*" "source_reference" (null-ok))
-    '("Comment*" "comment" (null-ok))
+    '("ValaComment*" "comment" (null-ok))
   )
 )

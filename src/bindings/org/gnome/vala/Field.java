@@ -49,7 +49,7 @@ public class Field extends Variable
      * 
      * @param name
      *            field name
-     * @param type
+     * @param variableType
      *            field type
      * @return newly created field
      */

@@ -1,0 +1,18 @@
+(define-lightweightobject Comment
+  (in-module "Vala")
+  (c-name "ValaComment")
+  (gtype-id "VALA_TYPE_COMMENT")
+  (import-header "vala-0.18/vala.h")
+)
+
+(define-method ref
+  (of-object "ValaComment")
+  (c-name "vala_comment_ref")
+  (return-type "none")
+)
+
+(define-method unref
+  (of-object "ValaComment")
+  (c-name "vala_comment_unref")
+  (return-type "none")
+)

@@ -14,7 +14,7 @@
     '("gchar*" "name" (null-ok))
     '("ValaDataType*" "return_type")
     '("ValaSourceReference*" "source_reference" (null-ok))
-    '("Comment*" "comment" (null-ok))
+    '("ValaComment*" "comment" (null-ok))
   )
 )
 
