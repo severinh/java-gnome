@@ -44,4 +44,9 @@ public class Delegate extends TypeSymbol
         super(pointer);
     }
 
+    @Override
+    public <R> R accept(CodeVisitor<R> visitor) {
+        return visitor.visitDelegate(this);
+    }
+
 }

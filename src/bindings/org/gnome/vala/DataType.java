@@ -52,4 +52,9 @@ public class DataType extends CodeNode
         return ValaDataType.getDataType(this);
     }
 
+    @Override
+    public <R> R accept(CodeVisitor<R> visitor) {
+        return visitor.visitDataType(this);
+    }
+
 }

@@ -44,4 +44,9 @@ public class Struct extends TypeSymbol
         super(pointer);
     }
 
+    @Override
+    public <R> R accept(CodeVisitor<R> visitor) {
+        return visitor.visitStruct(this);
+    }
+
 }

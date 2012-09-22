@@ -76,4 +76,9 @@ public class LocalVariable extends Variable
         this(name, variableType, null, null);
     }
 
+    @Override
+    public <R> R accept(CodeVisitor<R> visitor) {
+        return visitor.visitLocalVariable(this);
+    }
+
 }

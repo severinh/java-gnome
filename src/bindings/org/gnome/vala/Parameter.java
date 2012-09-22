@@ -44,4 +44,9 @@ public class Parameter extends Variable
         super(pointer);
     }
 
+    @Override
+    public <R> R accept(CodeVisitor<R> visitor) {
+        return visitor.visitParameter(this);
+    }
+
 }

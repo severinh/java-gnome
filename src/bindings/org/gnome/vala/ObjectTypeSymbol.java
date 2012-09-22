@@ -39,7 +39,7 @@ package org.gnome.vala;
  * 
  * @author Severin Heiniger
  */
-public class ObjectTypeSymbol extends TypeSymbol
+public abstract class ObjectTypeSymbol extends TypeSymbol
 {
 
     protected ObjectTypeSymbol(long pointer) {

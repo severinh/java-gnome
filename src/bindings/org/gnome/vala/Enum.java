@@ -92,4 +92,9 @@ public class Enum extends TypeSymbol
         return ValaEnum.getConstants(this);
     }
 
+    @Override
+    public <R> R accept(CodeVisitor<R> visitor) {
+        return visitor.visitEnum(this);
+    }
+
 }

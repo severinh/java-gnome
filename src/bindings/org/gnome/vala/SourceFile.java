@@ -113,6 +113,10 @@ public class SourceFile extends Proxy
         return null;
     }
 
+    public <R> R accept(CodeVisitor<R> visitor) {
+        return visitor.visitSourceFile(this);
+    }
+
     @Override
     public String toString() {
         return "SourceFile[filename=" + getFilename() + "]";

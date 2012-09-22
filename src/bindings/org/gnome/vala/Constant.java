@@ -44,4 +44,9 @@ public class Constant extends Symbol
         super(pointer);
     }
 
+    @Override
+    public <R> R accept(CodeVisitor<R> visitor) {
+        return visitor.visitConstant(this);
+    }
+
 }

@@ -32,7 +32,6 @@
  */
 package org.gnome.vala;
 
-
 /**
  * Represents a namespace declaration in the source code.
  * 
@@ -72,6 +71,11 @@ public class Namespace extends Symbol
     @SuppressWarnings("unchecked")
     public List<Class> getClasses() {
         return ValaNamespace.getClasses(this);
+    }
+
+    @Override
+    public <R> R accept(CodeVisitor<R> visitor) {
+        return visitor.visitNamespace(this);
     }
 
 }

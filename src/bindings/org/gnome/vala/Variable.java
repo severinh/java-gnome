@@ -49,4 +49,9 @@ public class Variable extends Symbol
         return ValaVariable.getVariableType(this);
     }
 
+    @Override
+    public <R> R accept(CodeVisitor<R> visitor) {
+        return visitor.visitVariable(this);
+    }
+
 }

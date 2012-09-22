@@ -37,7 +37,7 @@ package org.gnome.vala;
  * 
  * @author Severin Heiniger
  */
-public class Symbol extends CodeNode
+public abstract class Symbol extends CodeNode
 {
 
     /**

@@ -135,4 +135,9 @@ public class Method extends Symbol
         return false;
     }
 
+    @Override
+    public <R> R accept(CodeVisitor<R> visitor) {
+        return visitor.visitMethod(this);
+    }
+
 }

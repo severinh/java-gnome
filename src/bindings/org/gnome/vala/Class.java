@@ -137,4 +137,9 @@ public class Class extends ObjectTypeSymbol
         return null;
     }
 
+    @Override
+    public <R> R accept(CodeVisitor<R> visitor) {
+        return visitor.visitClass(this);
+    }
+
 }

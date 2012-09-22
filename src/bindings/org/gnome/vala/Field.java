@@ -92,4 +92,9 @@ public class Field extends Variable
         ValaField.setBinding(this, binding);
     }
 
+    @Override
+    public <R> R accept(CodeVisitor<R> visitor) {
+        return visitor.visitField(this);
+    }
+
 }

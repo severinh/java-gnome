@@ -70,4 +70,9 @@ public class Interface extends ObjectTypeSymbol
         this(name, null, null);
     }
 
+    @Override
+    public <R> R accept(CodeVisitor<R> visitor) {
+        return visitor.visitInterface(this);
+    }
+
 }

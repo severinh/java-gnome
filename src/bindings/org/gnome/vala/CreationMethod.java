@@ -56,4 +56,8 @@ public class CreationMethod extends Method
         return name;
     }
 
+    public <R> R accept(CodeVisitor<R> visitor) {
+        return visitor.visitCreationMethod(this);
+    }
+
 }

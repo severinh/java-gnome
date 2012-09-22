@@ -63,6 +63,8 @@ public abstract class CodeNode extends Proxy
         return ValaCodeNode.getSourceReference(this);
     }
 
+    public abstract <R> R accept(CodeVisitor<R> visitor);
+
     @Override
     public String toString() {
         return ValaCodeNode.toString(this);

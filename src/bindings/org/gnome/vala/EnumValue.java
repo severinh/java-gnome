@@ -68,4 +68,9 @@ public class EnumValue extends Constant
         this(name, null, null, null);
     }
 
+    @Override
+    public <R> R accept(CodeVisitor<R> visitor) {
+        return visitor.visitEnumValue(this);
+    }
+
 }

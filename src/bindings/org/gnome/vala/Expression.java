@@ -44,4 +44,9 @@ public class Expression extends CodeNode
         super(pointer);
     }
 
+    @Override
+    public <R> R accept(CodeVisitor<R> visitor) {
+        return visitor.visitExpression(this);
+    }
+
 }
