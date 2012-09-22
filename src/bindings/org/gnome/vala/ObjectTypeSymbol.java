@@ -73,4 +73,31 @@ public abstract class ObjectTypeSymbol extends TypeSymbol
         return null;
     }
 
+    /**
+     * Returns a copy of the list of properties.
+     * 
+     * @return list of properties
+     */
+    @SuppressWarnings("unchecked")
+    public List<Property> getProperties() {
+        return ValaObjectTypeSymbol.getProperties(this);
+    }
+
+    /**
+     * Returns the property with the given name, if any.
+     * 
+     * @param name
+     *            the name of the property
+     * @return <code>null</code> if there is no such property
+     * @todo the method has a linear rather than a constant complexity
+     */
+    public Property getProperty(String name) {
+        for (Property property : getProperties()) {
+            if (property.getName().equals(name)) {
+                return property;
+            }
+        }
+        return null;
+    }
+
 }

@@ -145,6 +145,14 @@ public interface CodeVisitor<R>
     public R visitParameter(Parameter parameter);
 
     /**
+     * Visit operation called for properties.
+     * 
+     * @param property
+     *            a property
+     */
+    public R visitProperty(Property property);
+
+    /**
      * Visit operation called for type references.
      * 
      * @param dataType

@@ -55,6 +55,10 @@ public class NopCodeVisitor<R> implements CodeVisitor<R>
         return null;
     }
 
+    public R visitProperty(Property property) {
+        return null;
+    }
+
     public R visitDataType(DataType dataType) {
         return null;
     }

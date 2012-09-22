@@ -1,0 +1,20 @@
+(define-lightweightobject Property
+  (in-module "Vala")
+  (c-name "ValaProperty")
+  (gtype-id "VALA_TYPE_PROPERTY")
+  (import-header "vala-0.18/vala.h")
+)
+
+(define-method get_binding
+  (of-object "ValaProperty")
+  (c-name "vala_property_get_binding")
+  (return-type "ValaMemberBinding")
+)
+
+(define-method set_binding
+  (of-object "ValaProperty")
+  (c-name "vala_property_set_binding")
+  (return-type "none")
+  (parameters
+   '("ValaMemberBinding" "binding")
+)

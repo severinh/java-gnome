@@ -10,3 +10,9 @@
   (c-name "vala_object_type_symbol_get_methods")
   (return-type "ValaList*")
 )
+
+(define-method get_properties
+  (of-object "ValaObjectTypeSymbol")
+  (c-name "vala_object_type_symbol_get_properties")
+  (return-type "ValaList*")
+)
