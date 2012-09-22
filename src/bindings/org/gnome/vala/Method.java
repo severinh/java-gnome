@@ -97,6 +97,24 @@ public class Method extends Symbol
         ValaMethod.setBinding(this, binding);
     }
 
+    /**
+     * Returns whether this method is abstract. Abstract methods have no body,
+     * may only be specified within abstract classes, and must be overridden
+     * by derived non-abstract classes.
+     */
+    public boolean isAbstract() {
+        return ValaMethod.getIsAbstract(this);
+    }
+
+    /**
+     * Sets whether this method is abstract. Abstract methods have no body,
+     * may only be specified within abstract classes, and must be overridden
+     * by derived non-abstract classes.
+     */
+    public void setAbstract(boolean isAbstract) {
+        ValaMethod.setIsAbstract(this, isAbstract);
+    }
+
     @SuppressWarnings("unchecked")
     public List<Parameter> getParameters() {
         return ValaMethod.getParameters(this);

@@ -38,6 +38,20 @@
    '("ValaMemberBinding" "binding")
 )
 
+(define-method get_is_abstract
+  (of-object "ValaMethod")
+  (c-name "vala_method_get_is_abstract")
+  (return-type "gboolean")
+)
+
+(define-method set_is_abstract
+  (of-object "ValaMethod")
+  (c-name "vala_method_set_is_abstract")
+  (return-type "none")
+  (parameters
+    '("gboolean" "is_abstract")
+)
+
 (define-method get_parameters
   (of-object "ValaMethod")
   (c-name "vala_method_get_parameters")
