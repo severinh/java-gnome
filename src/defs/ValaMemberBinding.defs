@@ -1,0 +1,10 @@
+(define-enum MemberBinding
+  (in-module "Vala")
+  (c-name "ValaMemberBinding")
+  (import-header "vala-0.18/vala.h")
+  (values
+    '("instance" "VALA_MEMBER_BINDING_TYPE_INSTANCE")
+    '("class" "VALA_MEMBER_BINDING_TYPE_CLASS")
+    '("static" "VALA_MEMBER_BINDING_TYPE_STATIC")
+  )
+)
