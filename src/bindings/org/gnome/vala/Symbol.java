@@ -80,9 +80,9 @@ public class Symbol extends CodeNode
             int line = begin.getLine();
             int columnBegin = begin.getColumn() + index;
             int columnEnd = columnBegin + name.length() - 1;
-            SourceLocation nameBegin = new SourceLocation(line, columnBegin);
-            SourceLocation nameEnd = new SourceLocation(line, columnEnd);
-            nameSourceReference = new SourceReference(sourceFile, nameBegin, nameEnd);
+            SourceLocation newBegin = new SourceLocation(line, columnBegin);
+            SourceLocation newEnd = new SourceLocation(line, columnEnd);
+            nameSourceReference = new SourceReference(sourceFile, newBegin, newEnd);
         }
         return nameSourceReference;
     }
