@@ -38,7 +38,7 @@ package org.gnome.vala;
  * 
  * @author Severin Heiniger
  */
-public class Namespace extends CodeNode
+public class Namespace extends Symbol
 {
 
     protected Namespace(long pointer) {
