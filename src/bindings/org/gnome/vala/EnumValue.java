@@ -44,4 +44,28 @@ public class EnumValue extends Constant
         super(pointer);
     }
 
+    /**
+     * Creates a new enum value with the specified numerical representation.
+     * 
+     * @param name
+     *            enum value name
+     * @param value
+     *            numerical representation
+     * @return newly created enum value
+     */
+    public EnumValue(String name, Expression value, SourceReference sourceReference, Comment comment) {
+        this(ValaEnumValue.createEnumValue(name, value, sourceReference, comment));
+    }
+
+    /**
+     * Creates a new enum value.
+     * 
+     * @param name
+     *            enum value name
+     * @return newly created enum value
+     */
+    public EnumValue(String name) {
+        this(name, null, null, null);
+    }
+
 }
