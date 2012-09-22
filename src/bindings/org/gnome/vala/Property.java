@@ -45,6 +45,13 @@ public class Property extends Symbol
     }
 
     /**
+     * Returns the property type.
+     */
+    public DataType getPropertyType() {
+        return ValaProperty.getPropertyType(this);
+    }
+
+    /**
      * Returns whether this property is abstract. Abstract properties have no
      * accessor bodies, may only be specified within abstract classes and
      * interfaces, and must be overridden by derived non-abstract classes.

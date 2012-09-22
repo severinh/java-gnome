@@ -5,6 +5,12 @@
   (import-header "vala-0.18/vala.h")
 )
 
+(define-method get_property_type
+  (of-object "ValaProperty")
+  (c-name "vala_property_get_property_type")
+  (return-type "ValaDataType*")
+)
+
 (define-method get_is_abstract
   (of-object "ValaProperty")
   (c-name "vala_property_get_is_abstract")
