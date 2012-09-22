@@ -4,3 +4,9 @@
   (gtype-id "VALA_TYPE_CONSTANT")
   (import-header "vala-0.18/vala.h")
 )
+
+(define-method get_type_reference
+  (of-object "ValaConstant")
+  (c-name "vala_constant_get_type_reference")
+  (return-type "ValaDataType*")
+)
