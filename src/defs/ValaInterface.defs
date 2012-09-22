@@ -1,0 +1,6 @@
+(define-lightweightobject Interface
+  (in-module "Vala")
+  (c-name "ValaInterface")
+  (gtype-id "VALA_TYPE_INTERFACE")
+  (import-header "vala-0.18/vala.h")
+)
