@@ -33,44 +33,15 @@
 package org.gnome.vala;
 
 /**
- * Represents an enum declaration in the source code.
+ * Represents an enum member in the source code.
  * 
  * @author Severin Heiniger
  */
-public class Enum extends TypeSymbol
+public class EnumValue extends Constant
 {
 
-    protected Enum(long pointer) {
+    protected EnumValue(long pointer) {
         super(pointer);
-    }
-
-    /**
-     * Creates a new enum.
-     * 
-     * @param name
-     *            type name
-     * @param sourceReference
-     *            reference to source code
-     * @return newly created enum
-     */
-    public Enum(String name, SourceReference sourceReference, Comment comment) {
-        this(ValaEnum.createEnum(name, sourceReference, comment));
-    }
-
-    /**
-     * Creates a new enum.
-     * 
-     * @param name
-     *            type name
-     * @return newly created enum
-     */
-    public Enum(String name) {
-        this(name, null, null);
-    }
-
-    @SuppressWarnings("unchecked")
-    public java.util.List<EnumValue> getValues() {
-        return ValaEnum.getValues(this);
     }
 
 }

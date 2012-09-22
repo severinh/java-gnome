@@ -1,0 +1,6 @@
+(define-lightweightobject Constant
+  (in-module "Vala")
+  (c-name "ValaConstant")
+  (gtype-id "VALA_TYPE_CONSTANT")
+  (import-header "vala-0.18/vala.h")
+)

@@ -16,3 +16,9 @@
     '("ValaComment*" "comment" (null-ok))
   )
 )
+
+(define-method get_values
+  (of-object "ValaEnum")
+  (c-name "vala_enum_get_values")
+  (return-type "ValaList*")
+)

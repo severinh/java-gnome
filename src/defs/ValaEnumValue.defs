@@ -1,0 +1,6 @@
+(define-lightweightobject EnumValue
+  (in-module "Vala")
+  (c-name "ValaEnumValue")
+  (gtype-id "VALA_TYPE_ENUM_VALUE")
+  (import-header "vala-0.18/vala.h")
+)
