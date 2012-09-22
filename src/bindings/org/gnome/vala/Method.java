@@ -115,6 +115,22 @@ public class Method extends Symbol
         ValaMethod.setIsAbstract(this, isAbstract);
     }
 
+    /**
+     * Returns the virtual or abstract method this method overrides. Reference
+     * must be weak as virtual and abstract methods set base_method to
+     * themselves.
+     */
+    public Method getBaseMethod() {
+        return ValaMethod.getBaseMethod(this);
+    }
+
+    /**
+     * Returns the abstract interface method this method implements.
+     */
+    public Method getBaseInterfaceMethod() {
+        return ValaMethod.getBaseInterfaceMethod(this);
+    }
+
     @SuppressWarnings("unchecked")
     public List<Parameter> getParameters() {
         return ValaMethod.getParameters(this);

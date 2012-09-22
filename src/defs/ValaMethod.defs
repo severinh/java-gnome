@@ -52,6 +52,18 @@
     '("gboolean" "is_abstract")
 )
 
+(define-method get_base_method
+  (of-object "ValaMethod")
+  (c-name "vala_method_get_base_method")
+  (return-type "ValaMethod*")
+)
+
+(define-method get_base_interface_method
+  (of-object "ValaMethod")
+  (c-name "vala_method_get_base_interface_method")
+  (return-type "ValaMethod*")
+)
+
 (define-method get_parameters
   (of-object "ValaMethod")
   (c-name "vala_method_get_parameters")
