@@ -4,3 +4,15 @@
   (gtype-id "VALA_TYPE_INTERFACE")
   (import-header "vala-0.18/vala.h")
 )
+
+(define-function vala_interface_new
+  (is-constructor-of "ValaInterface")
+  (c-name "vala_interface_new")
+  (caller-owns-return #t)
+  (return-type "ValaInterface*")
+  (parameters
+    '("gchar*" "name")
+    '("ValaSourceReference*" "source_reference" (null-ok))
+    '("ValaComment*" "comment" (null-ok))
+  )
+)

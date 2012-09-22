@@ -44,4 +44,30 @@ public class Interface extends ObjectTypeSymbol
         super(pointer);
     }
 
+    /**
+     * Creates a new interface.
+     * 
+     * @param name
+     *            type name
+     * @param sourceReference
+     *            reference to source code
+     * @param comment
+     *            class documentation
+     * @return newly created interface
+     */
+    public Interface(String name, SourceReference sourceReference, Comment comment) {
+        super(ValaInterface.createInterface(name, sourceReference, comment));
+    }
+
+    /**
+     * Creates a new interface with neither a source reference nor a comment.
+     * 
+     * @param name
+     *            type name
+     * @return newly created interface
+     */
+    public Interface(String name) {
+        this(name, null, null);
+    }
+
 }
