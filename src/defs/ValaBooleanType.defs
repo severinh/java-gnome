@@ -1,0 +1,6 @@
+(define-lightweightobject BooleanType
+  (in-module "Vala")
+  (c-name "ValaBooleanType")
+  (gtype-id "VALA_TYPE_BOOLEAN_TYPE")
+  (import-header "vala-0.18/vala.h")
+)
