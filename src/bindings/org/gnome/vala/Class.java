@@ -32,6 +32,8 @@
  */
 package org.gnome.vala;
 
+import java.util.Collections;
+
 /**
  * Represents a class declaration in the source code.
  * 
@@ -39,6 +41,8 @@ package org.gnome.vala;
  */
 public class Class extends ObjectTypeSymbol
 {
+
+    private java.util.List<CodeNode> nodes;
 
     protected Class(long pointer) {
         super(pointer);
@@ -135,6 +139,22 @@ public class Class extends ObjectTypeSymbol
             }
         }
         return null;
+    }
+
+    /**
+     * Returns the list of code nodes in this class, sorted by their location
+     * in the source code.
+     * 
+     * @return the code nodes
+     */
+    public java.util.List<CodeNode> getNodes() {
+        if (nodes == null) {
+            nodes = new java.util.ArrayList<CodeNode>();
+            nodes.addAll(getFields());
+            nodes.addAll(getMethods());
+            Collections.sort(nodes, CodeNodeLocationComparator.getInstance());
+        }
+        return nodes;
     }
 
     @Override

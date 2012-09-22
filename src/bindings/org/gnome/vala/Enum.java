@@ -32,6 +32,8 @@
  */
 package org.gnome.vala;
 
+import java.util.Collections;
+
 /**
  * Represents an enum declaration in the source code.
  * 
@@ -39,6 +41,8 @@ package org.gnome.vala;
  */
 public class Enum extends TypeSymbol
 {
+
+    private java.util.List<CodeNode> nodes;
 
     protected Enum(long pointer) {
         super(pointer);
@@ -90,6 +94,23 @@ public class Enum extends TypeSymbol
     @SuppressWarnings("unchecked")
     public java.util.List<Constant> getConstants() {
         return ValaEnum.getConstants(this);
+    }
+
+    /**
+     * Returns the list of code nodes in this enum, sorted by their location
+     * in the source code.
+     * 
+     * @return the code nodes
+     */
+    public java.util.List<CodeNode> getNodes() {
+        if (nodes == null) {
+            nodes = new java.util.ArrayList<CodeNode>();
+            nodes.addAll(getValues());
+            nodes.addAll(getMethods());
+            nodes.addAll(getConstants());
+            Collections.sort(nodes, CodeNodeLocationComparator.getInstance());
+        }
+        return nodes;
     }
 
     @Override
