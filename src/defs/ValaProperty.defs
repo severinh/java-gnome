@@ -5,6 +5,20 @@
   (import-header "vala-0.18/vala.h")
 )
 
+(define-method get_is_abstract
+  (of-object "ValaProperty")
+  (c-name "vala_property_get_is_abstract")
+  (return-type "gboolean")
+)
+
+(define-method set_is_abstract
+  (of-object "ValaProperty")
+  (c-name "vala_property_set_is_abstract")
+  (return-type "none")
+  (parameters
+    '("gboolean" "is_abstract")
+)
+
 (define-method get_binding
   (of-object "ValaProperty")
   (c-name "vala_property_get_binding")

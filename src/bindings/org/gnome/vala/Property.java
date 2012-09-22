@@ -45,6 +45,24 @@ public class Property extends Symbol
     }
 
     /**
+     * Returns whether this property is abstract. Abstract properties have no
+     * accessor bodies, may only be specified within abstract classes and
+     * interfaces, and must be overridden by derived non-abstract classes.
+     */
+    public boolean isAbstract() {
+        return ValaProperty.getIsAbstract(this);
+    }
+
+    /**
+     * Sets whether this property is abstract. Abstract properties have no
+     * accessor bodies, may only be specified within abstract classes and
+     * interfaces, and must be overridden by derived non-abstract classes.
+     */
+    public void setAbstract(boolean isAbstract) {
+        ValaProperty.setIsAbstract(this, isAbstract);
+    }
+
+    /**
      * Returns whether this field may only be accessed with an instance of the
      * contained type.
      */
