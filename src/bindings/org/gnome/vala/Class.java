@@ -71,6 +71,22 @@ public class Class extends ObjectTypeSymbol
     }
 
     /**
+     * Returns whether this class is abstract. Abstract classes may not be
+     * instantiated.
+     */
+    public boolean isAbstract() {
+        return ValaClass.getIsAbstract(this);
+    }
+
+    /**
+     * Sets whether this class is abstract. Abstract classes may not be
+     * instantiated.
+     */
+    public void setAbstract(boolean isAbstract) {
+        ValaClass.setIsAbstract(this, isAbstract);
+    }
+
+    /**
      * Returns a copy of the base type list.
      * 
      * @return list of base types

@@ -23,6 +23,20 @@
   (return-type "ValaList*")
 )
 
+(define-method get_is_abstract
+  (of-object "ValaClass")
+  (c-name "vala_class_get_is_abstract")
+  (return-type "gboolean")
+)
+
+(define-method set_is_abstract
+  (of-object "ValaClass")
+  (c-name "vala_class_set_is_abstract")
+  (return-type "none")
+  (parameters
+    '("gboolean" "is_abstract")
+)
+
 (define-method get_fields
   (of-object "ValaClass")
   (c-name "vala_class_get_fields")
