@@ -1,0 +1,6 @@
+(define-lightweightobject DelegateType
+  (in-module "Vala")
+  (c-name "ValaDelegateType")
+  (gtype-id "VALA_TYPE_DELEGATE_TYPE")
+  (import-header "vala-0.18/vala.h")
+)
