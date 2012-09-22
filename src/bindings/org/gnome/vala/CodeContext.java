@@ -71,6 +71,14 @@ public class CodeContext extends Proxy
     }
 
     /**
+     * Returns a copy of the list of source files.
+     */
+    @SuppressWarnings("unchecked")
+    public List<SourceFile> getSourceFiles() {
+        return ValaCodeContext.getSourceFiles(this);
+    }
+
+    /**
      * Pulls the specified package into the context. The method is tolerant if
      * the package has been already loaded.
      * 

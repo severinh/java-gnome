@@ -31,6 +31,18 @@
     '("ValaCodeContext*" "context")
 )
 
+(define-method get_root
+  (of-object "ValaCodeContext")
+  (c-name "vala_code_context_get_root")
+  (return-type "ValaNamespace*")
+)
+
+(define-method get_source_files
+  (of-object "ValaCodeContext")
+  (c-name "vala_code_context_get_source_files)
+  (return-type "ValaList*")
+)
+
 (define-method add_external_package
   (of-object "ValaCodeContext")
   (c-name "vala_code_context_add_external_package")
@@ -55,10 +67,4 @@
   (of-object "ValaCodeContext")
   (c-name "vala_code_context_check")
   (return-type "none")
-)
-
-(define-method get_root
-  (of-object "ValaCodeContext")
-  (c-name "vala_code_context_get_root")
-  (return-type "ValaNamespace*")
 )
