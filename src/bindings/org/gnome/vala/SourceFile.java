@@ -42,6 +42,8 @@ import org.freedesktop.bindings.Proxy;
 public class SourceFile extends Proxy
 {
 
+    private java.util.List<Enum> enums = null;
+
     protected SourceFile(long pointer) {
         super(pointer);
         ValaSourceFile.ref(this);
@@ -75,8 +77,40 @@ public class SourceFile extends Proxy
      * Returns a copy of the list of code nodes.
      */
     @SuppressWarnings("unchecked")
-    public List<CodeNode> getNodes() {
+    public java.util.List<CodeNode> getNodes() {
         return ValaSourceFile.getNodes(this);
+    }
+
+    /**
+     * Returns the list of enums in this source file.
+     */
+    public java.util.List<Enum> getEnums() {
+        if (enums == null) {
+            enums = new java.util.ArrayList<Enum>();
+            for (CodeNode codeNode : getNodes()) {
+                if (codeNode instanceof Enum) {
+                    enums.add((Enum) codeNode);
+                }
+            }
+        }
+        return enums;
+    }
+
+    /**
+     * Returns an enum in this source file, given its name.
+     * 
+     * @param name
+     *            the name of the enum
+     * @return the enum with the given name, or <code>null</code> if no such
+     *         enum could be found
+     */
+    public Enum getEnum(String name) {
+        for (Enum enm : getEnums()) {
+            if (enm.getName().equals(name)) {
+                return enm;
+            }
+        }
+        return null;
     }
 
     @Override
