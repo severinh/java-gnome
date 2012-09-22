@@ -24,6 +24,20 @@
   (return-type "ValaDataType*")
 )
 
+(define-method get_binding
+  (of-object "ValaMethod")
+  (c-name "vala_method_get_binding")
+  (return-type "ValaMemberBinding")
+)
+
+(define-method set_binding
+  (of-object "ValaMethod")
+  (c-name "vala_method_set_binding")
+  (return-type "none")
+  (parameters
+   '("ValaMemberBinding" "binding")
+)
+
 (define-method get_parameters
   (of-object "ValaMethod")
   (c-name "vala_method_get_parameters")

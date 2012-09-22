@@ -81,6 +81,22 @@ public class Method extends Symbol
         return ValaMethod.getReturnType(this);
     }
 
+    /**
+     * Returns whether this method may only be called with an instance of the
+     * contained type.
+     */
+    public MemberBinding getBinding() {
+        return ValaMethod.getBinding(this);
+    }
+
+    /**
+     * Sets whether this method may only be called with an instance of the
+     * contained type.
+     */
+    public void setBinding(MemberBinding binding) {
+        ValaMethod.setBinding(this, binding);
+    }
+
     @SuppressWarnings("unchecked")
     public List<Parameter> getParameters() {
         return ValaMethod.getParameters(this);

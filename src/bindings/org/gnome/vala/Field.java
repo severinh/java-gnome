@@ -76,4 +76,20 @@ public class Field extends Variable
         this(name, variableType, null, null, null);
     }
 
+    /**
+     * Returns whether this field may only be called with an instance of the
+     * contained type.
+     */
+    public MemberBinding getBinding() {
+        return ValaField.getBinding(this);
+    }
+
+    /**
+     * Sets whether this field may only be called with an instance of the
+     * contained type.
+     */
+    public void setBinding(MemberBinding binding) {
+        ValaField.setBinding(this, binding);
+    }
+
 }

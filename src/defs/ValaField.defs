@@ -18,3 +18,17 @@
     '("ValaComment*" "comment" (null-ok))
   )
 )
+
+(define-method get_binding
+  (of-object "ValaField")
+  (c-name "vala_field_get_binding")
+  (return-type "ValaMemberBinding")
+)
+
+(define-method set_binding
+  (of-object "ValaField")
+  (c-name "vala_field_set_binding")
+  (return-type "none")
+  (parameters
+   '("ValaMemberBinding" "binding")
+)
