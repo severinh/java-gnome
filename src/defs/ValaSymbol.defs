@@ -5,6 +5,12 @@
   (import-header "vala-0.18/vala.h")
 )
 
+(define-method get_parent_symbol
+  (of-object "ValaSymbol")
+  (c-name "vala_symbol_get_parent_symbol")
+  (return-type "ValaSymbol*")
+)
+
 (define-method get_name
   (of-object "ValaSymbol")
   (c-name "vala_symbol_get_name")

@@ -44,4 +44,16 @@ public class CreationMethod extends Method
         super(pointer);
     }
 
+    @Override
+    public String getNameInSourceFile() {
+        String name;
+        if (isDefaultConstructionMethod()) {
+            Class cls = (Class) getParentSymbol();
+            name = cls.getName();
+        } else {
+            name = super.getNameInSourceFile();
+        }
+        return name;
+    }
+
 }

@@ -40,10 +40,24 @@ package org.gnome.vala;
 public class Symbol extends CodeNode
 {
 
-    private SourceReference nameSourceReference = null;
+    /**
+     * The value used for the field {@link #nameSourceReference} to indicate
+     * that the source reference could not be determined and that the class
+     * should not try again.
+     */
+    private static final Object NULL_NAME_SOURCE_REFERENCE = new Object();
+
+    private Object nameSourceReference = null;
 
     protected Symbol(long pointer) {
         super(pointer);
+    }
+
+    /**
+     * Returns the parent of this symbol.
+     */
+    public Symbol getParentSymbol() {
+        return ValaSymbol.getParentSymbol(this);
     }
 
     /**
@@ -62,10 +76,16 @@ public class Symbol extends CodeNode
 
     /**
      * Returns the source reference to the symbol name.
+     * 
+     * TODO make it possible to retrieve the content of the source reference
+     * 
+     * @return the reference to the symbol name or <code>null</code> if the
+     *         name cannot be found in the source code, i.e., because the
+     *         symbol is only implicit
      */
     public SourceReference getNameSourceReference() {
         if (nameSourceReference == null) {
-            String name = getName();
+            String name = getNameInSourceFile();
             SourceReference sourceReference = getSourceReference();
             SourceFile sourceFile = sourceReference.getSourceFile();
             String referenceContent = sourceReference.getContent();
@@ -77,14 +97,26 @@ public class Symbol extends CodeNode
             }
 
             int index = referenceContent.indexOf(name);
-            int line = begin.getLine();
-            int columnBegin = begin.getColumn() + index;
-            int columnEnd = columnBegin + name.length() - 1;
-            SourceLocation newBegin = new SourceLocation(line, columnBegin);
-            SourceLocation newEnd = new SourceLocation(line, columnEnd);
-            nameSourceReference = new SourceReference(sourceFile, newBegin, newEnd);
+            if (index < 0) {
+                nameSourceReference = NULL_NAME_SOURCE_REFERENCE;
+            } else {
+                int line = begin.getLine();
+                int columnBegin = begin.getColumn() + index;
+                int columnEnd = columnBegin + name.length() - 1;
+                SourceLocation newBegin = new SourceLocation(line, columnBegin);
+                SourceLocation newEnd = new SourceLocation(line, columnEnd);
+                nameSourceReference = new SourceReference(sourceFile, newBegin, newEnd);
+            }
         }
-        return nameSourceReference;
+        if (nameSourceReference instanceof SourceReference) {
+            return (SourceReference) nameSourceReference;
+        } else {
+            return null;
+        }
+    }
+
+    public String getNameInSourceFile() {
+        return getName();
     }
 
     /**
