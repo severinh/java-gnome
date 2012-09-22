@@ -97,6 +97,20 @@ public class Class extends ObjectTypeSymbol
     }
 
     /**
+     * Returns the default construction method.
+     */
+    public Method getDefaultConstructionMethod() {
+        return ValaClass.getDefaultConstructionMethod(this);
+    }
+
+    /**
+     * Sets the default construction method.
+     */
+    public void setDefaultConstructionMethod(Method method) {
+        ValaClass.setDefaultConstructionMethod(this, method);
+    }
+
+    /**
      * Returns a copy of the list of fields.
      * 
      * @return list of fields

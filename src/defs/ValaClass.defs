@@ -37,6 +37,20 @@
     '("gboolean" "is_abstract")
 )
 
+(define-method get_default_construction_method
+  (of-object "ValaClass")
+  (c-name "vala_class_get_default_construction_method")
+  (return-type "ValaMethod*")
+)
+
+(define-method set_default_construction_method
+  (of-object "ValaClass")
+  (c-name "vala_class_set_default_construction_method")
+  (return-type "none")
+  (parameters
+    '("ValaMethod*" "method" (null-ok))
+)
+
 (define-method get_fields
   (of-object "ValaClass")
   (c-name "vala_class_get_fields")
