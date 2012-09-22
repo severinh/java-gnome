@@ -74,6 +74,33 @@ public abstract class ObjectTypeSymbol extends TypeSymbol
     }
 
     /**
+     * Returns a copy of the list of signals.
+     * 
+     * @return list of signals
+     */
+    @SuppressWarnings("unchecked")
+    public List<Signal> getSignals() {
+        return ValaObjectTypeSymbol.getSignals(this);
+    }
+
+    /**
+     * Returns the signal with the given name, if any.
+     * 
+     * @param name
+     *            the name of the signal
+     * @return <code>null</code> if there is no such signal
+     * @todo the method has a linear rather than a constant complexity
+     */
+    public Signal getSignal(String name) {
+        for (Signal signal : getSignals()) {
+            if (signal.getName().equals(name)) {
+                return signal;
+            }
+        }
+        return null;
+    }
+
+    /**
      * Returns a copy of the list of properties.
      * 
      * @return list of properties

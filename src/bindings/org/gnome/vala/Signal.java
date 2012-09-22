@@ -32,68 +32,34 @@
  */
 package org.gnome.vala;
 
-import java.util.Collections;
-
 /**
- * Represents a class declaration in the source code.
+ * Represents an object signal. Signals enable objects to provide
+ * notifications.
  * 
  * @author Severin Heiniger
  */
-public class Interface extends ObjectTypeSymbol
+public class Signal extends Symbol
 {
 
-    private java.util.List<CodeNode> nodes;
-
-    protected Interface(long pointer) {
+    protected Signal(long pointer) {
         super(pointer);
     }
 
     /**
-     * Creates a new interface.
-     * 
-     * @param name
-     *            type name
-     * @param sourceReference
-     *            reference to source code
-     * @param comment
-     *            class documentation
-     * @return newly created interface
+     * The return type of handlers of this signal.
      */
-    public Interface(String name, SourceReference sourceReference, Comment comment) {
-        super(ValaInterface.createInterface(name, sourceReference, comment));
+    public DataType getReturnType() {
+        return ValaSignal.getReturnType(this);
     }
 
-    /**
-     * Creates a new interface with neither a source reference nor a comment.
-     * 
-     * @param name
-     *            type name
-     * @return newly created interface
-     */
-    public Interface(String name) {
-        this(name, null, null);
-    }
-
-    /**
-     * Returns the list of code nodes in this interface, sorted by their
-     * location in the source code.
-     * 
-     * @return the code nodes
-     */
-    public java.util.List<CodeNode> getNodes() {
-        if (nodes == null) {
-            nodes = new java.util.ArrayList<CodeNode>();
-            nodes.addAll(getMethods());
-            nodes.addAll(getSignals());
-            nodes.addAll(getProperties());
-            Collections.sort(nodes, CodeNodeLocationComparator.getInstance());
-        }
-        return nodes;
+    @SuppressWarnings("unchecked")
+    public List<Parameter> getParameters() {
+        return ValaSignal.getParameters(this);
     }
 
     @Override
     public <R> R accept(CodeVisitor<R> visitor) {
-        return visitor.visitInterface(this);
+        return visitor.visitSignal(this);
     }
 
 }

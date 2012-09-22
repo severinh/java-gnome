@@ -1,0 +1,18 @@
+(define-lightweightobject Signal
+  (in-module "Vala")
+  (c-name "ValaSignal")
+  (gtype-id "VALA_TYPE_SIGNAL")
+  (import-header "vala-0.18/vala.h")
+)
+
+(define-method get_return_type
+  (of-object "ValaSignal")
+  (c-name "vala_signal_get_return_type")
+  (return-type "ValaDataType*")
+)
+
+(define-method get_parameters
+  (of-object "ValaSignal")
+  (c-name "vala_signal_get_parameters")
+  (return-type "ValaList*")
+)

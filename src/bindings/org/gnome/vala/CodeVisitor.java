@@ -153,6 +153,14 @@ public interface CodeVisitor<R>
     public R visitProperty(Property property);
 
     /**
+     * Visit operation called for signals.
+     * 
+     * @param signal
+     *            a signal
+     */
+    public R visitSignal(Signal signal);
+
+    /**
      * Visit operation called for type references.
      * 
      * @param dataType

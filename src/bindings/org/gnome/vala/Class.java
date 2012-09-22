@@ -152,6 +152,7 @@ public class Class extends ObjectTypeSymbol
             nodes = new java.util.ArrayList<CodeNode>();
             nodes.addAll(getFields());
             nodes.addAll(getMethods());
+            nodes.addAll(getSignals());
             nodes.addAll(getProperties());
             Collections.sort(nodes, CodeNodeLocationComparator.getInstance());
         }
