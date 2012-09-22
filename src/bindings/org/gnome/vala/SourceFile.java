@@ -71,6 +71,14 @@ public class SourceFile extends Proxy
         ValaSourceFile.setFilename(this, filename);
     }
 
+    /**
+     * Returns a copy of the list of code nodes.
+     */
+    @SuppressWarnings("unchecked")
+    public List<CodeNode> getNodes() {
+        return ValaSourceFile.getNodes(this);
+    }
+
     @Override
     public String toString() {
         return "SourceFile[filename=" + getFilename() + "]";

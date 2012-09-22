@@ -44,3 +44,9 @@
   (parameters
     '("gchar*" "filename")
 )
+
+(define-method get_nodes
+  (of-object "ValaSourceFile")
+  (c-name "vala_source_file_get_nodes")
+  (return-type "ValaList*")
+)
