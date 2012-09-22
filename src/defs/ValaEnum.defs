@@ -4,3 +4,15 @@
   (gtype-id "VALA_TYPE_ENUM")
   (import-header "vala-0.18/vala.h")
 )
+
+(define-function vala_enum_new
+  (is-constructor-of "ValaEnum")
+  (c-name "vala_enum_new")
+  (caller-owns-return #t)
+  (return-type "ValaEnum*")
+  (parameters
+    '("gchar*" "name")
+    '("ValaSourceReference*" "source_reference" (null-ok))
+    '("ValaComment*" "comment" (null-ok))
+  )
+)

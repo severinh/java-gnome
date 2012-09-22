@@ -44,4 +44,28 @@ public class Enum extends TypeSymbol
         super(pointer);
     }
 
+    /**
+     * Creates a new enum.
+     * 
+     * @param name
+     *            type name
+     * @param sourceReference
+     *            reference to source code
+     * @return newly created enum
+     */
+    public Enum(String name, SourceReference sourceReference, Comment comment) {
+        this(ValaEnum.createEnum(name, sourceReference, comment));
+    }
+
+    /**
+     * Creates a new enum.
+     * 
+     * @param name
+     *            type name
+     * @return newly created enum
+     */
+    public Enum(String name) {
+        this(name, null, null);
+    }
+
 }
