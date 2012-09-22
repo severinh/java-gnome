@@ -7,44 +7,48 @@ public class NopCodeVisitor<R> implements CodeVisitor<R>
         return null;
     }
 
-    public R visitNamespace(Namespace namespace) {
+    public R visitSymbol(Symbol symbol) {
         return null;
+    }
+
+    public R visitNamespace(Namespace namespace) {
+        return visitSymbol(namespace);
     }
 
     public R visitClass(Class cls) {
-        return null;
+        return visitSymbol(cls);
     }
 
     public R visitStruct(Struct struct) {
-        return null;
+        return visitSymbol(struct);
     }
 
     public R visitInterface(Interface iface) {
-        return null;
+        return visitSymbol(iface);
     }
 
     public R visitEnum(Enum enm) {
-        return null;
+        return visitSymbol(enm);
     }
 
     public R visitEnumValue(EnumValue enumValue) {
-        return null;
+        return visitSymbol(enumValue);
     }
 
     public R visitDelegate(Delegate delegate) {
-        return null;
+        return visitSymbol(delegate);
     }
 
     public R visitConstant(Constant constant) {
-        return null;
+        return visitSymbol(constant);
     }
 
     public R visitField(Field field) {
-        return null;
+        return visitSymbol(field);
     }
 
     public R visitMethod(Method method) {
-        return null;
+        return visitSymbol(method);
     }
 
     public R visitCreationMethod(CreationMethod method) {
@@ -52,15 +56,15 @@ public class NopCodeVisitor<R> implements CodeVisitor<R>
     }
 
     public R visitParameter(Parameter parameter) {
-        return null;
+        return visitSymbol(parameter);
     }
 
     public R visitProperty(Property property) {
-        return null;
+        return visitSymbol(property);
     }
 
     public R visitSignal(Signal signal) {
-        return null;
+        return visitSymbol(signal);
     }
 
     public R visitDataType(DataType dataType) {
@@ -68,7 +72,7 @@ public class NopCodeVisitor<R> implements CodeVisitor<R>
     }
 
     public R visitVariable(Variable variable) {
-        return null;
+        return visitSymbol(variable);
     }
 
     public R visitLocalVariable(LocalVariable localVariable) {
