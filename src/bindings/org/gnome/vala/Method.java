@@ -86,4 +86,19 @@ public class Method extends Symbol
         return ValaMethod.getParameters(this);
     }
 
+    /**
+     * Returns whether this method is the default construction method of the
+     * outer class.
+     */
+    public boolean isDefaultConstructionMethod() {
+        Symbol parentSymbol = getParentSymbol();
+        if (parentSymbol instanceof Class) {
+            Class cls = (Class) parentSymbol;
+            if (cls.getDefaultConstructionMethod() == this) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
