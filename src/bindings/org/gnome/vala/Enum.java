@@ -68,9 +68,28 @@ public class Enum extends TypeSymbol
         this(name, null, null);
     }
 
+    /**
+     * Returns a copy of the list of enum values.
+     */
     @SuppressWarnings("unchecked")
     public java.util.List<EnumValue> getValues() {
         return ValaEnum.getValues(this);
+    }
+
+    /**
+     * Returns a copy of the list of methods.
+     */
+    @SuppressWarnings("unchecked")
+    public java.util.List<EnumValue> getMethods() {
+        return ValaEnum.getMethods(this);
+    }
+
+    /**
+     * Returns a copy of the list of constants.
+     */
+    @SuppressWarnings("unchecked")
+    public java.util.List<EnumValue> getConstants() {
+        return ValaEnum.getConstants(this);
     }
 
 }
