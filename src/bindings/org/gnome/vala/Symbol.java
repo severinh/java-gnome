@@ -119,7 +119,7 @@ public class Symbol extends CodeNode
      * Whether the reference to the symbol name could be determined.
      */
     public boolean hasNameSourceReference() {
-        return nameSourceReference != null;
+        return getNameSourceReference() != null;
     }
 
     public String getNameInSourceFile() {
