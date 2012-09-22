@@ -59,6 +59,14 @@ public class Namespace extends CodeNode
     }
 
     /**
+     * Returns a copy of the list of namespaces.
+     */
+    @SuppressWarnings("unchecked")
+    public List<Namespace> getNamespaces() {
+        return ValaNamespace.getNamespaces(this);
+    }
+
+    /**
      * Returns a copy of the list of classes.
      */
     @SuppressWarnings("unchecked")

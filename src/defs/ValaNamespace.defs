@@ -15,6 +15,12 @@
     '("ValaSourceReference*" "source_reference" (null-ok))
 )
 
+(define-method get_namespaces
+  (of-object "ValaNamespace")
+  (c-name "vala_namespace_get_namespaces")
+  (return-type "ValaList*")
+)
+
 (define-method get_classes
   (of-object "ValaNamespace")
   (c-name "vala_namespace_get_classes")
