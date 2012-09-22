@@ -48,7 +48,7 @@ public class NopCodeVisitor<R> implements CodeVisitor<R>
     }
 
     public R visitCreationMethod(CreationMethod method) {
-        return null;
+        return visitMethod(method);
     }
 
     public R visitParameter(Parameter parameter) {
@@ -64,7 +64,7 @@ public class NopCodeVisitor<R> implements CodeVisitor<R>
     }
 
     public R visitLocalVariable(LocalVariable localVariable) {
-        return null;
+        return visitVariable(localVariable);
     }
 
     public R visitExpression(Expression expression) {
