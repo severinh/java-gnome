@@ -80,7 +80,7 @@ public class Enum extends TypeSymbol
      * Returns a copy of the list of methods.
      */
     @SuppressWarnings("unchecked")
-    public java.util.List<EnumValue> getMethods() {
+    public java.util.List<Method> getMethods() {
         return ValaEnum.getMethods(this);
     }
 
@@ -88,7 +88,7 @@ public class Enum extends TypeSymbol
      * Returns a copy of the list of constants.
      */
     @SuppressWarnings("unchecked")
-    public java.util.List<EnumValue> getConstants() {
+    public java.util.List<Constant> getConstants() {
         return ValaEnum.getConstants(this);
     }
 
