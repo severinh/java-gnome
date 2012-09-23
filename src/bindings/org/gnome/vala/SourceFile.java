@@ -42,7 +42,13 @@ import org.freedesktop.bindings.Proxy;
 public class SourceFile extends Proxy
 {
 
+    private java.util.List<Class> classes = null;
+
+    private java.util.List<Interface> interfaces = null;
+
     private java.util.List<Enum> enums = null;
+
+    private java.util.List<Method> methods = null;
 
     protected SourceFile(long pointer) {
         super(pointer);
@@ -82,6 +88,70 @@ public class SourceFile extends Proxy
     }
 
     /**
+     * Returns the list of classes in this source file.
+     */
+    public java.util.List<Class> getClasses() {
+        if (classes == null) {
+            classes = new java.util.ArrayList<Class>();
+            for (CodeNode codeNode : getNodes()) {
+                if (codeNode instanceof Class) {
+                    classes.add((Class) codeNode);
+                }
+            }
+        }
+        return classes;
+    }
+
+    /**
+     * Returns an class in this source file, given its name.
+     * 
+     * @param name
+     *            the name of the class
+     * @return the class with the given name, or <code>null</code> if no such
+     *         class could be found
+     */
+    public Class getClass(String name) {
+        for (Class cls : getClasses()) {
+            if (cls.getName().equals(name)) {
+                return cls;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Returns the list of classes in this source file.
+     */
+    public java.util.List<Interface> getInterfaces() {
+        if (interfaces == null) {
+            interfaces = new java.util.ArrayList<Interface>();
+            for (CodeNode codeNode : getNodes()) {
+                if (codeNode instanceof Interface) {
+                    interfaces.add((Interface) codeNode);
+                }
+            }
+        }
+        return interfaces;
+    }
+
+    /**
+     * Returns an interface in this source file, given its name.
+     * 
+     * @param name
+     *            the name of the interface
+     * @return the interface with the given name, or <code>null</code> if no
+     *         such interface could be found
+     */
+    public Interface getInterface(String name) {
+        for (Interface iface : getInterfaces()) {
+            if (iface.getName().equals(name)) {
+                return iface;
+            }
+        }
+        return null;
+    }
+
+    /**
      * Returns the list of enums in this source file.
      */
     public java.util.List<Enum> getEnums() {
@@ -108,6 +178,38 @@ public class SourceFile extends Proxy
         for (Enum enm : getEnums()) {
             if (enm.getName().equals(name)) {
                 return enm;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Returns the list of methods in this source file.
+     */
+    public java.util.List<Method> getMethods() {
+        if (methods == null) {
+            methods = new java.util.ArrayList<Method>();
+            for (CodeNode codeNode : getNodes()) {
+                if (codeNode instanceof Method) {
+                    methods.add((Method) codeNode);
+                }
+            }
+        }
+        return methods;
+    }
+
+    /**
+     * Returns an method in this source file, given its name.
+     * 
+     * @param name
+     *            the name of the method
+     * @return the method with the given name, or <code>null</code> if no such
+     *         method could be found
+     */
+    public Method getMethod(String name) {
+        for (Method method : getMethods()) {
+            if (method.getName().equals(name)) {
+                return method;
             }
         }
         return null;
