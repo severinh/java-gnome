@@ -33,7 +33,7 @@
 
 #include <jni.h>
 #include <gtk/gtk.h>
-#include <vala-2.0/vala.h>
+#include <vala-0.20/vala.h>
 #include "bindings_java.h"
 #include "org_gnome_vala_ValaSourceLocationOverride.h"
 
