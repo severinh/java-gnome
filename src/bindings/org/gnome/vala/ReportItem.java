@@ -1,7 +1,7 @@
 /*
  * java-gnome, a UI library for writing GTK and GNOME programs from Java!
  *
- * Copyright © 2012 Operational Dynamics Consulting, Pty Ltd and Others
+ * Copyright © 2008-2010 Operational Dynamics Consulting, Pty Ltd
  *
  * The code in this file, and the program it is a part of, is made available
  * to you by its authors as open source software: you can redistribute it
@@ -30,58 +30,50 @@
  * version of the library, but you are not obligated to do so. If you do not
  * wish to do so, delete this exception statement from your version.
  */
+package org.gnome.vala;
 
-#include <jni.h>
-#include <gtk/gtk.h>
-#include <vala-2.0/vala.h>
-#include "bindings_java.h"
-#include "org_gnome_vala_ValaSourceLocationOverride.h"
+import org.freedesktop.bindings.Proxy;
 
-JNIEXPORT jlong JNICALL
-Java_org_gnome_vala_ValaSourceLocationOverride_vala_1source_1location_1new
-(
-	JNIEnv* env,
-	jclass cls,
-	jint _line,
-	jint _column
-)
+/**
+ * A single item in a {@link Report}, including the warning or error message
+ * as well as meta-data.
+ * 
+ * @author Severin Heiniger
+ */
+public class ReportItem extends Proxy
 {
-	ValaSourceLocation* result;
-	gint line;
-	gint column;
-	
-	/*
-	 * This is a dynamic source_location.
-	 */	
-	result = g_slice_new0(ValaSourceLocation);
+    protected ReportItem(long pointer) {
+        super(pointer);
+    }
 
-	// convert parameter line
-	line = (gint) _line;
-	
-	// convert parameter column
-	column = (gint) _column;
+    @Override
+    protected void release() {}
 
-	vala_source_location_init (result, 0, line, column);
+    /**
+     * Returns the location in the source code that the report item is about.
+     * 
+     * @return the source reference
+     */
+    public SourceReference getSource() {
+        return ValaReportItem.getSource(this);
+    }
 
-	// and finally
-	return (jlong) result;
-}
+    /**
+     * Returns the textual content of the report item.
+     * 
+     * @return the message
+     */
+    public String getMessage() {
+        return ValaReportItem.getMessage(this);
+    }
 
-JNIEXPORT void JNICALL
-Java_org_gnome_vala_SourceLocationOverride_vala_1source_1location_1free
-(
-	JNIEnv* env,
-	jclass cls,
-	jlong _self
-)
-{
-	ValaSourceLocation* self;
-	
-	// convert parameter self
-	self = (ValaSourceLocation*) _self;
-	
-	// call function
-	g_slice_free(ValaSourceLocation, self);
-	
-	// cleanup parameter self
+    /**
+     * Returns the severity of the report item.
+     * 
+     * @return the severity
+     */
+    public ReportItemSeverity getSeverity() {
+        return ValaReportItem.getSeverity(this);
+    }
+
 }

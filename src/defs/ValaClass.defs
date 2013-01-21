@@ -2,7 +2,7 @@
   (in-module "Vala")
   (c-name "ValaClass")
   (gtype-id "VALA_TYPE_CLASS")
-  (import-header "vala-0.18/vala.h")
+  (import-header "vala-0.20/vala.h")
 )
 
 (define-function vala_class_new

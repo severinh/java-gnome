@@ -2,7 +2,7 @@
   (in-module "Vala")
   (c-name "ValaSignal")
   (gtype-id "VALA_TYPE_SIGNAL")
-  (import-header "vala-0.18/vala.h")
+  (import-header "vala-0.20/vala.h")
 )
 
 (define-method get_return_type

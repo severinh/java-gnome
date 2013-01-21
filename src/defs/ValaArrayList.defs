@@ -2,5 +2,5 @@
   (in-module "Vala")
   (c-name "ValaArrayList")
   (gtype-id "VALA_TYPE_ARRAY_LIST")
-  (import-header "vala-0.18/vala.h")
+  (import-header "vala-0.20/vala.h")
 )

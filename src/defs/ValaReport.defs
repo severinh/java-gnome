@@ -1,0 +1,24 @@
+(define-lightweightobject Report
+  (in-module "Vala")
+  (c-name "ValaReport")
+  (gtype-id "VALA_TYPE_REPORT")
+  (import-header "vala-0.20/vala.h")
+)
+
+(define-method get_warnings
+  (of-object "ValaReport")
+  (c-name "vala_report_get_warnings")
+  (return-type "int")
+)
+
+(define-method get_errors
+  (of-object "ValaReport")
+  (c-name "vala_report_get_errors")
+  (return-type "int")
+)
+
+(define-method get_items
+  (of-object "ValaReport")
+  (c-name "vala_report_get_items")
+  (return-type "ValaList*")
+)

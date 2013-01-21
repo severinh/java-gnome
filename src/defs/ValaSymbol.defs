@@ -2,7 +2,7 @@
   (in-module "Vala")
   (c-name "ValaSymbol")
   (gtype-id "VALA_TYPE_SYMBOL")
-  (import-header "vala-0.18/vala.h")
+  (import-header "vala-0.20/vala.h")
 )
 
 (define-method get_parent_symbol

@@ -1,7 +1,7 @@
 (define-enum SymbolAccessibility
   (in-module "Vala")
   (c-name "ValaSymbolAccessibility")
-  (import-header "vala-0.18/vala.h")
+  (import-header "vala-0.20/vala.h")
   (values
     '("private" "VALA_SYMBOL_ACCESSIBILITY_TYPE_PRIVATE")
     '("internal" "VALA_SYMBOL_ACCESSIBILITY_TYPE_INTERNAL")

@@ -1,0 +1,24 @@
+(define-lightweightobject ReportItem
+  (in-module "Vala")
+  (c-name "ValaReportItem")
+  (gtype-id "VALA_TYPE_REPORT_ITEM")
+  (import-header "vala-0.20/vala.h")
+)
+
+(define-method get_source
+  (of-object "ValaReportItem")
+  (c-name "vala_report_item_get_source")
+  (return-type "ValaSourceReference*")
+)
+
+(define-method get_message
+  (of-object "ValaReportItem")
+  (c-name "vala_report_item_get_message")
+  (return-type "gchar*")
+)
+
+(define-method get_severity
+  (of-object "ValaReportItem")
+  (c-name "vala_report_item_get_severity")
+  (return-type "ValaReportItemSeverity")
+)

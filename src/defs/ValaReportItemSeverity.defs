@@ -1,0 +1,10 @@
+(define-enum ReportItemSeverity
+  (in-module "Vala")
+  (c-name "ValaReportItemSeverity")
+  (import-header "vala-0.20/vala.h")
+  (values
+    '("note" "VALA_REPORT_ITEM_SEVERITY_TYPE_NOTE")
+    '("warning" "VALA_REPORT_ITEM_SEVERITY_TYPE_WARNING")
+    '("error" "VALA_REPORT_ITEM_SEVERITY_TYPE_ERROR")
+  )
+)

@@ -2,7 +2,7 @@
   (in-module "Vala")
   (c-name "ValaCodeNode")
   (gtype-id "VALA_TYPE_CODE_NODE")
-  (import-header "vala-0.18/vala.h")
+  (import-header "vala-0.20/vala.h")
 )
 
 (define-method ref

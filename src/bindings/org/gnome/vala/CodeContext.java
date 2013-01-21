@@ -69,6 +69,10 @@ public class CodeContext extends Proxy
     public Namespace getRoot() {
         return ValaCodeContext.getRoot(this);
     }
+    
+    public Report getReport() {
+        return ValaCodeContext.getReport(this);
+    }
 
     /**
      * Returns a copy of the list of source files.

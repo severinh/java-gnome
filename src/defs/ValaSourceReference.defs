@@ -2,7 +2,7 @@
   (in-module "Vala")
   (c-name "ValaSourceReference")
   (gtype-id "VALA_TYPE_SOURCE_REFERENCE")
-  (import-header "vala-0.18/vala.h")
+  (import-header "vala-0.20/vala.h")
 )
 
 (define-function vala_source_reference_new

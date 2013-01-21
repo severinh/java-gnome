@@ -2,7 +2,7 @@
   (in-module "Vala")
   (c-name "ValaCollection")
   (gtype-id "VALA_TYPE_COLLECTION")
-  (import-header "vala-0.18/vala.h")
+  (import-header "vala-0.20/vala.h")
 )
 
 (define-method get_size

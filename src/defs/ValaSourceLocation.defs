@@ -1,7 +1,7 @@
 (define-boxed SourceLocation
   (in-module "Vala")
   (c-name "ValaSourceLocation")
-  (import-header "vala-0.18/vala.h")
+  (import-header "vala-0.20/vala.h")
   (fields
     '("gchar*" "pos")
     '("gint" "line")
