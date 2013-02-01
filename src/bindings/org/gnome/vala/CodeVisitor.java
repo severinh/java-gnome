@@ -97,6 +97,13 @@ public interface CodeVisitor<R>
     public R visitEnumValue(EnumValue enumValue);
 
     /**
+     * Visit operation called for error domains.
+     *
+     * @param edomain an error domain
+     */
+    public R visitErrorDomain (ErrorDomain errorDomain);
+    
+    /**
      * Visit operation called for delegates.
      * 
      * @param delegate

@@ -1,0 +1,6 @@
+(define-lightweightobject ErrorDomain
+  (in-module "Vala")
+  (c-name "ValaErrorDomain")
+  (gtype-id "VALA_TYPE_ERROR_DOMAIN")
+  (import-header "vala-0.20/vala.h")
+)

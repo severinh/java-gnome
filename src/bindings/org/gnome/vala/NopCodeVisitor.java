@@ -34,6 +34,10 @@ public class NopCodeVisitor<R> implements CodeVisitor<R>
     public R visitEnumValue(EnumValue enumValue) {
         return visitSymbol(enumValue);
     }
+    
+    public R visitErrorDomain(ErrorDomain errorDomain) {
+        return visitSymbol(errorDomain);
+    }
 
     public R visitDelegate(Delegate delegate) {
         return visitSymbol(delegate);
