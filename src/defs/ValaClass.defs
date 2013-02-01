@@ -51,8 +51,38 @@
     '("ValaMethod*" "method" (null-ok))
 )
 
+(define-method get_classes
+  (of-object "ValaClass")
+  (c-name "vala_class_get_classes")
+  (return-type "ValaList*")
+)
+
+(define-method get_structs
+  (of-object "ValaClass")
+  (c-name "vala_class_get_structs")
+  (return-type "ValaList*")
+)
+
+(define-method get_enums
+  (of-object "ValaClass")
+  (c-name "vala_class_get_enums")
+  (return-type "ValaList*")
+)
+
+(define-method get_delegates
+  (of-object "ValaClass")
+  (c-name "vala_class_get_delegates")
+  (return-type "ValaList*")
+)
+
 (define-method get_fields
   (of-object "ValaClass")
   (c-name "vala_class_get_fields")
+  (return-type "ValaList*")
+)
+
+(define-method get_constants
+  (of-object "ValaClass")
+  (c-name "vala_class_get_constants")
   (return-type "ValaList*")
 )

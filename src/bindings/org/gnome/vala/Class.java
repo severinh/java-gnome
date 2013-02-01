@@ -113,6 +113,46 @@ public class Class extends ObjectTypeSymbol
     public void setDefaultConstructionMethod(Method method) {
         ValaClass.setDefaultConstructionMethod(this, method);
     }
+    
+    /**
+     * Returns a copy of the list of classes.
+     * 
+     * @return list of classes
+     */
+    @SuppressWarnings("unchecked")
+    public List<Class> getClasses() {
+        return ValaClass.getClasses(this);
+    }
+    
+    /**
+     * Returns a copy of the list of structs.
+     * 
+     * @return list of structs
+     */
+    @SuppressWarnings("unchecked")
+    public List<Struct> getStructs() {
+        return ValaClass.getStructs(this);
+    }
+    
+    /**
+     * Returns a copy of the list of enums.
+     * 
+     * @return list of enums
+     */
+    @SuppressWarnings("unchecked")
+    public List<Enum> getEnums() {
+        return ValaClass.getEnums(this);
+    }
+    
+    /**
+     * Returns a copy of the list of delegates.
+     * 
+     * @return list of delegates
+     */
+    @SuppressWarnings("unchecked")
+    public List<Delegate> getDelegates() {
+        return ValaClass.getDelegates(this);
+    }
 
     /**
      * Returns a copy of the list of fields.
@@ -140,6 +180,33 @@ public class Class extends ObjectTypeSymbol
         }
         return null;
     }
+    
+    /**
+     * Returns a copy of the list of constants.
+     *
+     * @return list of constants
+     */
+    @SuppressWarnings("unchecked")
+    public List<Constant> getConstants() {
+        return ValaClass.getConstants(this);
+    }
+    
+    /**
+     * Returns the constant with the given name, if any.
+     * 
+     * @param name
+     *            the name of the constant
+     * @return <code>null</code> if there is no such constant
+     * @todo the method has a linear rather than a constant complexity
+     */
+    public Constant getConstant(String name) {
+        for (Constant constant : getConstants()) {
+            if (constant.getName().equals(name)) {
+                return constant;
+            }
+        }
+        return null;
+    }
 
     /**
      * Returns the list of code nodes in this class, sorted by their location
@@ -150,7 +217,12 @@ public class Class extends ObjectTypeSymbol
     public java.util.List<CodeNode> getNodes() {
         if (nodes == null) {
             nodes = new java.util.ArrayList<CodeNode>();
+            nodes.addAll(getClasses());
+            nodes.addAll(getStructs());
+            nodes.addAll(getEnums());
+            nodes.addAll(getDelegates());
             nodes.addAll(getFields());
+            nodes.addAll(getConstants());
             nodes.addAll(getMethods());
             nodes.addAll(getSignals());
             nodes.addAll(getProperties());
